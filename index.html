@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pendo Future</title>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <link rel="stylesheet" href="https://use.typekit.net/awf7pyi.css">
+  <link rel="stylesheet" href="../../css/pendoelement.css">
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+  <div id="app">
+    <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect">
+      <el-menu-item index="1">Insights</el-menu-item>
+      <el-menu-item index="2">Guides</el-menu-item>
+      <el-menu-item index="3">Sentiment</el-menu-item>
+      <el-menu-item index="4">Feedback</el-menu-item>
+      <el-menu-item index="5">Roadmap</el-menu-item>
+      <el-menu-item index="6">Settings</el-menu-item>
+    </el-menu>
+  </div>
+  <script>
+  var Main = {
+    data() {
+      return {
+        activeIndex:'1',
+      };
+    },
+    methods: {
+      handleSelect(key, keyPath) {
+        console.log(key, keyPath);
+      }
+    }
+  }
+  var Ctor=Vue.extend(Main)
+  new Ctor().$mount('#app')
+  </script>
+</body>
+</html>
