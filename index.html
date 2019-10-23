@@ -10,33 +10,48 @@
   <link rel="stylesheet" href="css/pendoelement.css">
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
   <div id="app">
-    <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect">
-      <el-menu-item index="1">Insights</el-menu-item>
-      <el-menu-item index="2">Guides</el-menu-item>
-      <el-menu-item index="3">Sentiment</el-menu-item>
-      <el-menu-item index="4">Feedback</el-menu-item>
-      <el-menu-item index="5">Roadmap</el-menu-item>
-      <el-menu-item index="6">Settings</el-menu-item>
-    </el-menu>
+    <el-tabs v-model="activeName" @tab-click="handleClick" style="background: #fff;">
+      <el-tab-pane>
+        <span slot="label" class="logo"><img src="img/pendo.svg" style="height: 12px;" alt="Pendo" /></span>
+        Home
+      </el-tab-pane>
+      <el-tab-pane label="Insights" name="Insights">Insights</el-tab-pane>
+      <el-tab-pane label="Guides" name="Guides">Guides</el-tab-pane>
+      <el-tab-pane label="Sentiment" name="Sentiment">Sentiment</el-tab-pane>
+      <el-tab-pane label="Feedback" name="Feedback">Feedback</el-tab-pane>
+      <el-tab-pane label="Settings" name="Settings">Settings<br/></el-tab-pane>
+    </el-tabs>
+    <el-dropdown trigger="click" class="username">
+      <span class="el-dropdown-link">
+        <img src="https://wrnkld.tv/img/frenchfries.jpg" style="border-radius: 50%; width: 24px;" /><i class="el-icon-arrow-down el-icon--right"></i>
+      </span>
+      <el-dropdown-menu slot="dropdown">
+        <el-dropdown-item>Subscription Name 1</el-dropdown-item>
+        <el-dropdown-item>Subscription Name 2 <i data-feather="check" style="position: relative; left: 6px; top: 3px;"></i></el-dropdown-item>
+        <el-dropdown-item>Subscription Name 3</el-dropdown-item>
+        <el-dropdown-item>Subscription Name 4</el-dropdown-item>
+        <el-dropdown-item divided>Help</el-dropdown-item>
+        <el-dropdown-item divided>Log Out</el-dropdown-item>
+      </el-dropdown-menu>
+    </el-dropdown>
   </div>
   <script>
   var Main = {
     data() {
       return {
-        activeIndex:'1',
-      };
-    },
-    methods: {
-      handleSelect(key, keyPath) {
-        console.log(key, keyPath);
+        activeName:'Insights',
+        username:'MatthewStevens',
       }
     }
-  }
-  var Ctor=Vue.extend(Main)
-  new Ctor().$mount('#app')
+  };
+  var Ctor = Vue.extend(Main)
+  new Ctor().$mount('#app');
+  feather.replace()
   </script>
+
 </body>
 </html>

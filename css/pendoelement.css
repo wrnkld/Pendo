@@ -3,7 +3,7 @@ body {
   font-family: proxima-nova, arial, sans-serif;
   font-size: 14px;
   line-height: 1.3em;
-  margin: 32px;
+  margin: 0;
 }
 a:link, a:visited {
   color: #229ca8;
@@ -12,10 +12,6 @@ a:link, a:visited {
 a:hover, a:active {
   color: #1D858F;
   text-decoration: none;
-}
-.clearfix {
-  clear: both;
-  height: 32px;
 }
 .feather {
   height: 16px;
@@ -55,47 +51,6 @@ a:hover, a:active {
   color: #6a6c75;
   font-weight: 400;
   margin-left: 25px;
-}
-/* integration */
-.integration {
-  margin: -20px -20px 20px -20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.subtitle {
-  color: #6a6c75;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 1px;
-  margin: 8px 0;
-  text-align: left;
-  text-transform: uppercase;
-}
-/* details table */
-#deets thead {
-  display: none;
-}
-#deets tbody tr:first-child {
-}
-/* metrics */
-.pendo-metric__value {
-  font-size: 32px;
-  font-weight: 600;
-  line-height: 32px;
-  margin: 20px 0 0 0;
-}
-.pendo-metric__label {
-  background: #fff;
-  border: 1px solid #dadce5;
-  border-radius: 4px;
-  color: #2a2c35;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: .5px;
-  padding: 0 8px;
-  display: inline-flex;
 }
 /* cardz */
 .pendo-card__main {
@@ -254,14 +209,13 @@ input.el-range-input::-webkit-input-placeholder {
 }
 .el-checkbox-button.is-checked:first-child .el-checkbox-button__inner,
 .el-checkbox-button.is-checked:last-child .el-checkbox-button__inner {
-    border-left-color: #229ca8;
+  border-left-color: #229ca8;
 }
 .el-checkbox-button.is-checked .el-checkbox-button__inner {
   background-color: #229ca8;
   border-color: #229ca8;
   box-shadow: none;
 }
-
 /* radio buttons */
 .el-radio, .el-radio-group {
   display: block;
@@ -300,49 +254,6 @@ input.el-range-input::-webkit-input-placeholder {
   font-size: 14px;
   font-weight: 400;
 }
-/* collapse ufo */
-#ufobody .el-collapse-item__header {
-  border-top: 1px solid #EAECF1;
-  color: #9A9CA5;
-  font-size: 12px;
-  font-weight: 600;
-  margin: 16px -16px 0 -16px;
-  padding: 8px 16px 0px 16px;
-  text-transform: uppercase;
-}
-#ufobody .el-collapse-item__header.is-active {
-  color: #229ca8;
-}
-#ufobody .el-collapse-item__content {
-  font-size: 14px;
-}
-/* ufo */
-#ufo {
-  background: #fff;
-  width: 400px;
-  -moz-box-shadow:    0 2px 6px rgba(0, 0, 0, 0.17);
-  -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.17);
-  box-shadow:         0 2px 6px rgba(0, 0, 0, 0.17);
-  position: absolute;
-}
-#ufoheader {
-  background: #F8F8F9;
-  border-bottom: 1px solid #DADCE5;
-  cursor: grab;
-  font-weight: bold;
-  padding: 16px;
-}
-#ufobody {
-  max-height: 400px;
-  overflow: auto;
-  padding: 16px;
-}
-#ufofooter {
-  border-top: 1px solid #EAECF1;
-  padding: 16px;
-  position: sticky;
-  text-align: right;
-}
 /* carousel */
 .el-carousel__item:nth-child(2n) {
   background-color: #99a9bf;
@@ -350,35 +261,33 @@ input.el-range-input::-webkit-input-placeholder {
 .el-carousel__item {
   background-color: #d3dce6;
 }
-/* rando */
-.el-table--border::after, .el-table--group::after, .el-table::before {
-  background-color: transparent;
+/* special */
+.username {
+  position: absolute;
+  right: 32px;
+  top: 17px;
 }
-.el-table th>.cell,
-.el-table .cell {
-  white-space: nowrap;
+.el-tabs__header {
+  margin-bottom: 0;
 }
-td:last-child {
-  padding-right: 20px;
+.el-tabs__nav-scroll {
+  padding: 0 32px;
 }
-.el-card {
-  margin-bottom: 32px;
+.el-tabs__content {
+  background: #f8f8f9;
+  padding: 32px;
 }
-.el-breadcrumb {
-  line-height: 18px;
+.el-tabs__item {
+  padding: 10px 20px;
+  height: 60px;
 }
-.el-form-item__label {
-  color: #303133;
-  font-weight: 500;
+.logo {
+  background: #FF4876;
+  border-radius: 3px;
+  padding: 8px 8px 4px 8px;
+  vertical-align: middle;
 }
-.el-select,
-.el-date-editor--daterange.el-input,
-.el-date-editor--daterange.el-input__inner {
-  width: 100%;
-}
-.el-form-item__content {
-  line-height: 24px;
-}
-.el-divider--horizontal {
-  margin: 8px 0;
+[class*=" el-icon-"], [class^=el-icon-] {
+  margin-top: 6px;
+  vertical-align: top;
 }
