@@ -25,19 +25,23 @@
       <el-tab-pane label="Feedback" name="Feedback">Feedback</el-tab-pane>
       <el-tab-pane label="Settings" name="Settings">Settings<br/></el-tab-pane>
     </el-tabs>
-    <el-dropdown trigger="click" class="username">
-      <span class="el-dropdown-link">
-        <img src="https://wrnkld.tv/img/frenchfries.jpg" style="border-radius: 50%; width: 24px;" /><i class="el-icon-arrow-down el-icon--right"></i>
-      </span>
-      <el-dropdown-menu slot="dropdown">
-        <el-dropdown-item>Subscription Name 1</el-dropdown-item>
-        <el-dropdown-item>Subscription Name 2 <i data-feather="check" style="position: relative; left: 6px; top: 3px;"></i></el-dropdown-item>
-        <el-dropdown-item>Subscription Name 3</el-dropdown-item>
-        <el-dropdown-item>Subscription Name 4</el-dropdown-item>
-        <el-dropdown-item divided>Help</el-dropdown-item>
-        <el-dropdown-item divided>Log Out</el-dropdown-item>
-      </el-dropdown-menu>
-    </el-dropdown>
+    <div class="corner-menu">
+      <el-button type="text" style="padding-top: 4px;"><i data-feather="search"></i></el-button>
+      <el-button type="text" style="margin-right: 10px; padding-top: 4px;"><i data-feather="bell"></i></el-button>
+      <el-dropdown trigger="click">
+        <span class="el-dropdown-link">
+          <img src="https://wrnkld.tv/img/frenchfries.jpg" style="border-radius: 50%; width: 24px; position: relative; top: 4px;" /><i data-feather="chevron-down" style=""></i>
+        </span>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item>Subscription Name 1</el-dropdown-item>
+          <el-dropdown-item>Subscription Name 2 <i data-feather="check" style="position: relative; left: 6px; top: 3px;"></i></el-dropdown-item>
+          <el-dropdown-item>Subscription Name 3</el-dropdown-item>
+          <el-dropdown-item>Subscription Name 4</el-dropdown-item>
+          <el-dropdown-item divided>Help</el-dropdown-item>
+          <el-dropdown-item divided>Log Out</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+    </div>
   </div>
   <script>
   var Main = {
@@ -52,6 +56,5 @@
   new Ctor().$mount('#app');
   feather.replace()
   </script>
-
 </body>
 </html>

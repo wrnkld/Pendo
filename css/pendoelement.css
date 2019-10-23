@@ -262,10 +262,10 @@ input.el-range-input::-webkit-input-placeholder {
   background-color: #d3dce6;
 }
 /* special */
-.username {
+.corner-menu {
   position: absolute;
   right: 32px;
-  top: 17px;
+  top: 14px;
 }
 .el-tabs__header {
   margin-bottom: 0;
@@ -286,8 +286,4 @@ input.el-range-input::-webkit-input-placeholder {
   border-radius: 3px;
   padding: 8px 8px 4px 8px;
   vertical-align: middle;
-}
-[class*=" el-icon-"], [class^=el-icon-] {
-  margin-top: 6px;
-  vertical-align: top;
 }
