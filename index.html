@@ -2,39 +2,545 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pendo Future</title>
   <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
   <link rel="stylesheet" href="https://use.typekit.net/awf7pyi.css">
   <link rel="stylesheet" href="css/pendoelement.css">
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/highcharts-more.js"></script>
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script src="https://unpkg.com/element-ui/lib/umd/locale/en.js"></script>
   <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
   <div id="app">
-    <el-tabs v-model="activeName" @tab-click="handleClick" style="background: #fff;">
+    <el-tabs v-model="activeNameMain" @tab-click="handleClick" style="background: #fff;">
+      <!-- HOME -->
+      <!-- HOME -->
+      <!-- HOME -->
+      <!-- HOME -->
+      <!-- HOME -->
       <el-tab-pane>
         <span slot="label" class="logo"><img src="img/pendo.svg" style="height: 12px;" alt="Pendo" /></span>
-        Home
+        <!-- row -->
+        <el-row :gutter="32">
+          <!-- col header -->
+          <el-col :span="24">
+            <h1 class="page-title">db</h1>
+          </el-col>
+        </el-row>
       </el-tab-pane>
-      <el-tab-pane label="Insights" name="Insights">Insights</el-tab-pane>
-      <el-tab-pane label="Guides" name="Guides">Guides</el-tab-pane>
-      <el-tab-pane label="Sentiment" name="Sentiment">Sentiment</el-tab-pane>
-      <el-tab-pane label="Feedback" name="Feedback">Feedback</el-tab-pane>
-      <el-tab-pane label="Settings" name="Settings">Settings<br/></el-tab-pane>
+      <!-- INSIGHTS -->
+      <!-- INSIGHTS -->
+      <!-- INSIGHTS -->
+      <!-- INSIGHTS -->
+      <!-- INSIGHTS -->
+      <el-tab-pane label="Insights" name="Insights">
+        <!-- row -->
+        <el-row :gutter="32">
+          <!-- col header -->
+          <el-col :span="24">
+            <h1 class="page-title">Insights</h1>
+          </el-col>
+        </el-row>
+      </el-tab-pane>
+      <!-- GUIDES -->
+      <!-- GUIDES -->
+      <!-- GUIDES -->
+      <!-- GUIDES -->
+      <!-- GUIDES -->
+      <el-tab-pane label="Guides" name="Guides">
+        <!-- row -->
+        <el-row :gutter="32">
+          <!-- col header -->
+          <el-col :span="24">
+            <h1 class="page-title">Guides</h1>
+          </el-col>
+        </el-row>
+      </el-tab-pane>
+      <!-- SENTIMENT -->
+      <!-- SENTIMENT -->
+      <!-- SENTIMENT -->
+      <!-- SENTIMENT -->
+      <!-- SENTIMENT -->
+      <el-tab-pane label="Sentiment" name="Sentiment">
+        <!-- row -->
+        <el-row :gutter="32">
+          <!-- col header -->
+          <el-col :span="6">
+            <h1 class="page-title">Sentiment</h1>
+          </el-col>
+          <!-- col actions -->
+          <el-col :span="18">
+            <div style="float: right;">
+              <el-tooltip content="Delete">
+                <el-button type="text"><i data-feather="trash-2"></i></el-button>
+              </el-tooltip>
+              <el-button type="secondary">Add Widget</el-button>
+              <el-button type="primary">Edit Survey</el-button>
+            </div>
+          </el-col>
+        </el-row>
+        <!-- tabs -->
+        <el-tabs v-model="activeNamesentiment" @tab-click="handleClick">
+          <el-tab-pane label="Settings" name="first">
+            <!-- row -->
+            <el-row :gutter="32">
+              <el-col :span="24">
+                <el-card class="box-card" shadow="never">
+                  <div slot="header">
+                    <span class="title">NPS Survey</span>
+                    <el-button type="text" class="card-actions"><i data-feather="edit-3"></i></el-button>
+                  </div>
+                  <template>
+                    <el-carousel :interval="4000" trigger="click" type="card">
+                      <el-carousel-item v-for="item in 3" :key="item"></el-carousel-item>
+                    </el-carousel>
+                  </template>
+                </el-card>
+              </el-col>
+            </el-row>
+            <!-- row -->
+            <el-row :gutter="32">
+              <!-- col 1 -->
+              <el-col :xs="24" :sm="12" :md="6" :lg="6" :xl="6">
+                <el-card class="box-card" shadow="never">
+                  <div slot="header">
+                    <span class="title">Activation</span>
+                    <el-button type="text" class="card-actions"><i data-feather="edit-3"></i></el-button>
+                  </div>
+                  <div class="pendo-card__main">
+                    <div class="pendo-card__value"><i class="el-icon-data-line"></i></div>
+                  </div>
+                  <div class="pendo-card__footer">
+                    <p><strong>Launch Method</strong><br/>Appears when a feature is clicked.</p>
+                    <p><strong>Page Location</strong><br/>Sitewide</p>
+                    <p><strong>Device Type</strong><br/>Show on desktop and tablets only.</p>
+                  </div>
+                </el-card>
+              </el-col>
+              <!-- col 2 -->
+              <el-col :xs="24" :sm="12" :md="6" :lg="6" :xl="6">
+                <el-card class="box-card" shadow="never">
+                  <div slot="header">
+                    <span class="title">Scheduling</span>
+                    <el-button type="text" class="card-actions"><i data-feather="edit-3"></i></el-button>
+                  </div>
+                  <div class="pendo-card__main">
+                    <div class="pendo-card__value">Now</div>
+                  </div>
+                  <div class="pendo-card__footer">
+                    <p><strong>Start Date</strong><br/>November 1, 2019</p>
+                    <p><strong>Expiration Date / Time</strong><br/>November 1, 2020</p>
+                  </div>
+                </el-card>
+              </el-col>
+              <!-- col 3 -->
+              <el-col :xs="24" :sm="12" :md="6" :lg="6" :xl="6">
+                <el-card class="box-card" shadow="never">
+                  <div slot="header">
+                    <span class="title">Segment</span>
+                    <el-button type="text" class="card-actions"><i data-feather="edit-3"></i></el-button>
+                  </div>
+                  <div class="pendo-card__main">
+                    <div class="pendo-card__value">181</div>
+                  </div>
+                  <div class="pendo-card__footer">
+                    <p><strong>Segment</strong><br/>Everyone</p>
+                    <p><strong>Rules Summary</strong><br/>Everyone in your app will see this.</p>
+                  </div>
+                </el-card>
+              </el-col>
+              <!-- col 4 -->
+              <el-col :xs="24" :sm="12" :md="6" :lg="6" :xl="6">
+                <el-card class="box-card" shadow="never">
+                  <div slot="header">
+                    <span class="title">Localization</span>
+                    <el-button type="text" class="card-actions"><i data-feather="edit-3"></i></el-button>
+                  </div>
+                  <div class="pendo-card__main">
+                    <div class="pendo-card__value">1 of 9</div>
+                  </div>
+                  <div class="pendo-card__footer">
+                    <p><strong>Translated Languages</strong><br/>English (US)</p>
+                    <p><strong>Untranslated Languages</strong><br/>Afrikaans, Chinese, French, German, Japanese, Portuguese, Portuguese (Brazil), Spanish</p>
+                  </div>
+                </el-card>
+              </el-col>
+            </el-row>
+          </el-tab-pane>
+          <el-tab-pane label="Responses" name="second">
+            <!-- row -->
+            <el-row :gutter="32">
+              <!-- col segment -->
+              <el-col :xs="24" :sm="12" :md="8" :lg="4" :xl="4">
+                <el-form ref="form" :model="form">
+                  <el-form-item label="Segment">
+                    <el-select v-model="valueQ" placeholder="Choose Segment">
+                      <el-option label="Segment 1" value="Segment1"></el-option>
+                      <el-option label="Segment 2" value="Segment2"></el-option>
+                      <el-option label="Segment 3" value="Segment3"></el-option>
+                      <el-option label="Segment 4" value="Segment4"></el-option>
+                      <el-option label="Segment 5" value="Segment5"></el-option>
+                      <el-option label="Segment 6" value="Segment6"></el-option>
+                      <el-option label="Segment 7" value="Segment7"></el-option>
+                      <el-option label="Segment 8" value="Segment8"></el-option>
+                      <el-option label="Segment 9" value="Segment9"></el-option>
+                    </el-select>
+                  </el-form-item>
+                </el-form>
+              </el-col>
+              <!-- col date -->
+              <el-col :xs="24" :sm="12" :md="8" :lg="4" :xl="4">
+                <el-form ref="form" :model="form">
+                  <el-form-item label="Date Range">
+                    <el-date-picker v-model="valueR" type="daterange" unlink-panels range-separator="To" start-placeholder="Start date" end-placeholder="End date" :picker-options="pickerOptions"></el-date-picker>
+                  </el-form-item>
+                </el-form>
+              </el-col>
+            </el-row>
+            <!-- row -->
+            <el-row :gutter="32">
+              <!-- col 1 -->
+              <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
+                <el-card class="box-card" shadow="never" style="padding-bottom: 26px;">
+                  <div slot="header">
+                    <span class="title">NPS Score</span>
+                    <div class="card-actions">
+                      <el-dropdown trigger="click">
+                        <el-button type="text"><i data-feather="more-horizontal"></i></el-button>
+                        <el-dropdown-menu slot="dropdown">
+                          <el-dropdown-item>Edit Widget</el-dropdown-item>
+                          <el-dropdown-item>Remove Widget</el-dropdown-item>
+                        </el-dropdown-menu>
+                      </el-dropdown>
+                    </div>
+                  </div>
+                  <div class="pendo-metric__label">Segment 4</div>
+                  <div class="pendo-metric__label">Last Month</div>
+                  <div class="pendo-metric__value">72</div>
+                </el-card>
+              </el-col>
+              <!-- col 2 -->
+              <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
+                <el-card class="box-card" shadow="never" style="padding-bottom: 26px;">
+                  <div slot="header">
+                    <span class="title">Response Rate</span>
+                    <div class="card-actions">
+                      <el-dropdown trigger="click">
+                        <el-button type="text"><i data-feather="more-horizontal"></i></el-button>
+                        <el-dropdown-menu slot="dropdown">
+                          <el-dropdown-item>Edit Widget</el-dropdown-item>
+                          <el-dropdown-item>Remove Widget</el-dropdown-item>
+                        </el-dropdown-menu>
+                      </el-dropdown>
+                    </div>
+                  </div>
+                  <div class="pendo-metric__label">Segment 4</div>
+                  <div class="pendo-metric__label">Last Month</div>
+                  <div class="pendo-metric__value">8%</div>
+                </el-card>
+              </el-col>
+              <!-- col 3 -->
+              <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
+                <el-card class="box-card" shadow="never">
+                  <div slot="header">
+                    <span class="title">NPS Distribution</span>
+                    <div class="card-actions">
+                      <el-dropdown trigger="click">
+                        <el-button type="text"><i data-feather="more-horizontal"></i></el-button>
+                        <el-dropdown-menu slot="dropdown">
+                          <el-dropdown-item>Edit Widget</el-dropdown-item>
+                          <el-dropdown-item>Remove Widget</el-dropdown-item>
+                        </el-dropdown-menu>
+                      </el-dropdown>
+                    </div>
+                  </div>
+                  <div class="pendo-metric__label">Segment 4</div>
+                  <div class="pendo-metric__label">Last Month</div>
+                  <div id="sentiment2" class="chartdumb"></div>
+                </el-card>
+              </el-col>
+            </el-row>
+            <!-- row -->
+            <el-row :gutter="32">
+              <el-col :span="24">
+                <el-card class="box-card" shadow="never">
+                  <div slot="header">
+                    <span class="title">NPS</span>
+                    <div class="card-actions">
+                      <el-tooltip content="Download Chart" placement="top">
+                        <el-button type="text"><i data-feather="download"></i></el-button>
+                      </el-tooltip>
+                      <el-dropdown trigger="click">
+                        <el-button type="text"><i data-feather="more-horizontal"></i></el-button>
+                        <el-dropdown-menu slot="dropdown">
+                          <el-dropdown-item>Edit Widget</el-dropdown-item>
+                          <el-dropdown-item>Remove Widget</el-dropdown-item>
+                        </el-dropdown-menu>
+                      </el-dropdown>
+                    </div>
+                  </div>
+                  <div class="pendo-metric__label">Segment 4</div>
+                  <div class="pendo-metric__label">Last Month</div>
+                  <div id="sentimentX" class="chartdisplayalt"></div>
+                </el-card>
+              </el-col>
+            </el-row>
+            <!-- row -->
+            <el-row :gutter="32">
+              <el-col :span="24">
+                <el-card class="box-card" shadow="never">
+                  <div slot="header">
+                    <span class="title">NPS By Account</span>
+                    <div class="card-actions">
+                      <el-tooltip content="Manage Columns" placement="top">
+                        <el-button type="text"><i data-feather="columns"></i></el-button>
+                      </el-tooltip>
+                      <el-tooltip content="Download CSV" placement="top">
+                        <el-button type="text"><i data-feather="download"></i></el-button>
+                      </el-tooltip>
+                      <el-dropdown trigger="click">
+                        <el-button type="text"><i data-feather="more-horizontal"></i></el-button>
+                        <el-dropdown-menu slot="dropdown">
+                          <el-dropdown-item>Edit Widget</el-dropdown-item>
+                          <el-dropdown-item>Remove Widget</el-dropdown-item>
+                        </el-dropdown-menu>
+                      </el-dropdown>
+                    </div>
+                  </div>
+                  <div class="pendo-metric__label">Segment 4</div>
+                  <div class="pendo-metric__label">Last Month</div>
+                  <el-table :data="tableData3">
+                    <el-table-column sortable prop="Account" label="Account"></el-table-column>
+                    <el-table-column sortable prop="Responses" label="Responses" align="right"></el-table-column>
+                    <el-table-column sortable prop="Detractors" label="Detractors" align="right"></el-table-column>
+                    <el-table-column sortable prop="Passives" label="Passives" align="right"></el-table-column>
+                    <el-table-column sortable prop="Promoters" label="Promoters" align="right"></el-table-column>
+                    <el-table-column sortable prop="AverageScore" label="Average Score" align="right"></el-table-column>
+                    <el-table-column sortable prop="NPS" label="NPS" align="right"></el-table-column>
+                  </el-table>
+                </el-card>
+              </el-col>
+            </el-row>
+            <!-- row -->
+            <el-row :gutter="32">
+              <el-col :span="24">
+                <el-card class="box-card" shadow="never">
+                  <div slot="header">
+                    <span class="title">Usage By Type</span>
+                    <div class="card-actions">
+                      <el-tooltip content="Download Chart" placement="top">
+                        <el-button type="text"><i data-feather="download"></i></el-button>
+                      </el-tooltip>
+                      <el-dropdown trigger="click">
+                        <el-button type="text"><i data-feather="more-horizontal"></i></el-button>
+                        <el-dropdown-menu slot="dropdown">
+                          <el-dropdown-item>Edit Widget</el-dropdown-item>
+                          <el-dropdown-item>Remove Widget</el-dropdown-item>
+                        </el-dropdown-menu>
+                      </el-dropdown>
+                    </div>
+                  </div>
+                  <div class="pendo-metric__label">Segment 4</div>
+                  <div class="pendo-metric__label">Last Month</div>
+                  <div id="sentimentY" class="chartdisplayalt"></div>
+                </el-card>
+              </el-col>
+            </el-row>
+            <!-- row -->
+            <el-row :gutter="32">
+              <el-col :span="24">
+                <el-card class="box-card" shadow="never">
+                  <div slot="header">
+                    <span class="title">Poll Responses</span>
+                    <div class="card-actions">
+                      <el-tooltip content="Manage Columns" placement="top">
+                        <el-button type="text"><i data-feather="columns"></i></el-button>
+                      </el-tooltip>
+                      <el-tooltip content="Download CSV" placement="top">
+                        <el-button type="text"><i data-feather="download"></i></el-button>
+                      </el-tooltip>
+                      <el-dropdown trigger="click">
+                        <el-button type="text"><i data-feather="more-horizontal"></i></el-button>
+                        <el-dropdown-menu slot="dropdown">
+                          <el-dropdown-item>Edit Widget</el-dropdown-item>
+                          <el-dropdown-item>Remove Widget</el-dropdown-item>
+                        </el-dropdown-menu>
+                      </el-dropdown>
+                    </div>
+                  </div>
+                  <div class="pendo-metric__label">Segment 4</div>
+                  <div class="pendo-metric__label">Last Month</div>
+                  <el-table :data="tableData4" class="tabledata">
+                    <el-table-column sortable prop="VisitorID" label="Visitor"></el-table-column>
+                    <el-table-column sortable prop="Date2" label="Date"></el-table-column>
+                    <el-table-column sortable prop="Channel" label="Channel"></el-table-column>
+                    <el-table-column sortable prop="Rating" label="Rating" align="right"></el-table-column>
+                    <el-table-column sortable prop="Account" label="Account"></el-table-column>
+                  </el-table>
+                </el-card>
+              </el-col>
+            </el-row>
+          </el-tab-pane>
+          <el-tab-pane label="Views" name="third">
+            <!-- row -->
+            <el-row :gutter="32">
+              <!-- col segment -->
+              <el-col :xs="24" :sm="12" :md="8" :lg="4" :xl="4">
+                <el-form ref="form" :model="form">
+                  <el-form-item label="Segment">
+                    <el-select v-model="value3" placeholder="Choose Segment">
+                      <el-option label="Segment 1" value="Segment1"></el-option>
+                      <el-option label="Segment 2" value="Segment2"></el-option>
+                      <el-option label="Segment 3" value="Segment3"></el-option>
+                      <el-option label="Segment 4" value="Segment4"></el-option>
+                      <el-option label="Segment 5" value="Segment5"></el-option>
+                      <el-option label="Segment 6" value="Segment6"></el-option>
+                      <el-option label="Segment 7" value="Segment7"></el-option>
+                      <el-option label="Segment 8" value="Segment8"></el-option>
+                      <el-option label="Segment 9" value="Segment9"></el-option>
+                    </el-select>
+                  </el-form-item>
+                </el-form>
+              </el-col>
+              <!-- col date -->
+              <el-col :xs="24" :sm="12" :md="8" :lg="4" :xl="4">
+                <el-form ref="form" :model="form">
+                  <el-form-item label="Date Range">
+                    <el-date-picker v-model="value2" type="daterange" unlink-panels range-separator="To" start-placeholder="Start date" end-placeholder="End date" :picker-options="pickerOptions"></el-date-picker>
+                  </el-form-item>
+                </el-form>
+              </el-col>
+            </el-row>
+            <!-- row -->
+            <el-row :gutter="32">
+              <el-col :span="24">
+                <el-card class="box-card" shadow="never">
+                  <div slot="header">
+                    <span class="title">Views</span>
+                    <div class="card-actions">
+                      <el-tooltip content="Download Chart" placement="top">
+                        <el-button type="text"><i data-feather="download"></i></el-button>
+                      </el-tooltip>
+                      <el-dropdown trigger="click">
+                        <el-button type="text"><i data-feather="more-horizontal"></i></el-button>
+                        <el-dropdown-menu slot="dropdown">
+                          <el-dropdown-item>Edit Widget</el-dropdown-item>
+                          <el-dropdown-item>Remove Widget</el-dropdown-item>
+                        </el-dropdown-menu>
+                      </el-dropdown>
+                    </div>
+                  </div>
+                  <div class="pendo-metric__label">Segment 4</div>
+                  <div class="pendo-metric__label">Last Month</div>
+                  <div id="sentiment1"  class="chartdisplayalt"></div>
+                </el-card>
+              </el-col>
+            </el-row>
+            <!-- row -->
+            <el-row :gutter="32">
+              <el-col :span="24">
+                <el-card class="box-card" shadow="never">
+                  <div slot="header">
+                    <span class="title">Time on Guide</span>
+                    <div class="card-actions">
+                      <el-tooltip content="Download Chart" placement="top">
+                        <el-button type="text"><i data-feather="download"></i></el-button>
+                      </el-tooltip>
+                      <el-dropdown trigger="click">
+                        <el-button type="text"><i data-feather="more-horizontal"></i></el-button>
+                        <el-dropdown-menu slot="dropdown">
+                          <el-dropdown-item>Edit Widget</el-dropdown-item>
+                          <el-dropdown-item>Remove Widget</el-dropdown-item>
+                        </el-dropdown-menu>
+                      </el-dropdown>
+                    </div>
+                  </div>
+                  <div class="pendo-metric__label">Segment 4</div>
+                  <div class="pendo-metric__label">Last Month</div>
+                  <div id="sentiment22"  class="chartdisplayalt"></div>
+                </el-card>
+              </el-col>
+            </el-row>
+            <!-- row -->
+            <el-row :gutter="32">
+              <el-col :span="24">
+                <el-card class="box-card" shadow="never">
+                  <div slot="header">
+                    <span class="title">Visitors</span>
+                    <div class="card-actions">
+                      <el-tooltip content="Manage Columns" placement="top">
+                        <el-button type="text"><i data-feather="columns"></i></el-button>
+                      </el-tooltip>
+                      <el-tooltip content="Download CSV" placement="top">
+                        <el-button type="text"><i data-feather="download"></i></el-button>
+                      </el-tooltip>
+                      <el-dropdown trigger="click">
+                        <el-button type="text"><i data-feather="more-horizontal"></i></el-button>
+                        <el-dropdown-menu slot="dropdown">
+                          <el-dropdown-item>Edit Widget</el-dropdown-item>
+                          <el-dropdown-item>Remove Widget</el-dropdown-item>
+                        </el-dropdown-menu>
+                      </el-dropdown>
+                    </div>
+                  </div>
+                  <div class="pendo-metric__label">Segment 4</div>
+                  <div class="pendo-metric__label">Last Month</div>
+                  <el-table :data="tableData2" class="tabledata">
+                    <el-table-column sortable prop="Visitor" label="Visitor"></el-table-column>
+                    <el-table-column sortable prop="TimeOnGuide" label="Time On Guide" align="right"></el-table-column>
+                    <el-table-column sortable prop="Views" label="Views" align="right"></el-table-column>
+                    <el-table-column sortable prop="Status" label="Status"></el-table-column>
+                    <el-table-column sortable prop="Date1" label="Date"></el-table-column>
+                  </el-table>
+                </el-card>
+              </el-col>
+            </el-row>
+          </el-tab-pane>
+        </el-tabs>
+      </el-tab-pane>
+      <!-- FEEDBACK -->
+      <!-- FEEDBACK -->
+      <!-- FEEDBACK -->
+      <!-- FEEDBACK -->
+      <!-- FEEDBACK -->
+      <el-tab-pane label="Feedback" name="Feedback">
+        <!-- row -->
+        <el-row :gutter="32">
+          <!-- col header -->
+          <el-col :span="24">
+            <h1 class="page-title">Feedback</h1>
+          </el-col>
+        </el-row>
+      </el-tab-pane>
+      <!-- SETTINGS -->
+      <!-- SETTINGS -->
+      <!-- SETTINGS -->
+      <!-- SETTINGS -->
+      <!-- SETTINGS -->
+      <el-tab-pane label="Settings" name="Settings">
+        <!-- row -->
+        <el-row :gutter="32">
+          <!-- col header -->
+          <el-col :span="24">
+            <h1 class="page-title">Settings</h1>
+          </el-col>
+        </el-row>
+      </el-tab-pane>
     </el-tabs>
     <div class="corner-menu">
-      <el-button type="text" style="padding-top: 4px;"><i data-feather="search"></i></el-button>
-      <el-button type="text" style="margin-right: 10px; padding-top: 4px;"><i data-feather="bell"></i></el-button>
+      <el-button type="text" class="cornersearch"><i data-feather="search"></i></el-button>
+      <el-button type="text" class="cornerbell"><i data-feather="bell"></i></el-button>
       <el-dropdown trigger="click">
         <span class="el-dropdown-link">
-          <img src="https://wrnkld.tv/img/frenchfries.jpg" style="border-radius: 50%; width: 24px; position: relative; top: 4px;" /><i data-feather="chevron-down" style=""></i>
+          <img src="https://wrnkld.tv/img/frenchfries.jpg" class="cornerff" /><i data-feather="chevron-down"></i>
         </span>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>Subscription Name 1</el-dropdown-item>
-          <el-dropdown-item>Subscription Name 2 <i data-feather="check" style="position: relative; left: 6px; top: 3px;"></i></el-dropdown-item>
+          <el-dropdown-item>Subscription Name 2 <i data-feather="check" class="cornercheck"></i></el-dropdown-item>
           <el-dropdown-item>Subscription Name 3</el-dropdown-item>
           <el-dropdown-item>Subscription Name 4</el-dropdown-item>
           <el-dropdown-item divided>Help</el-dropdown-item>
@@ -44,16 +550,656 @@
     </div>
   </div>
   <script>
+  ELEMENT.locale(ELEMENT.lang.en)
   var Main = {
     data() {
       return {
-        activeName:'Insights',
+        activeNameMain:'Settings',
+        activeNamesentiment: 'first',
         username:'MatthewStevens',
+        //datepicker
+        pickerOptions: {
+          shortcuts: [{
+            text: 'Creation Date',
+            onClick(picker) {
+              const end = new Date();
+              const start = new Date();
+              start.setTime(start.getTime());
+              picker.$emit('pick', [start, end]);
+            }
+          }, {
+            text: 'Today',
+            onClick(picker) {
+              const end = new Date();
+              const start = new Date();
+              start.setTime(start.getTime());
+              picker.$emit('pick', [start, end]);
+            }
+          }, {
+            text: 'Last Week',
+            onClick(picker) {
+              const end = new Date();
+              const start = new Date();
+              start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+              picker.$emit('pick', [start, end]);
+            }
+          }, {
+            text: 'Last Month',
+            onClick(picker) {
+              const end = new Date();
+              const start = new Date();
+              start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+              picker.$emit('pick', [start, end]);
+            }
+          }]
+        },
+        value1: '',
+        value2: '',
+        value3: '',
+        valueQ: '',
+        valueR: '',
+        valueS: '',
+        valueT: '',
+        //tab
+        activeName: 'first',
+        //table1
+        tableData1: [{
+          what1: 'Application',
+          what2: 'Application Name',
+          what3: ''
+        }, {
+          what1: 'Group',
+          what2: 'Group Name',
+          what3: ''
+        }, {
+          what1: 'Created',
+          what2: 'Matthew Stevens',
+          what3: 'May 6, 2019 10:48:08 AM MDT'
+        }, {
+          what1: 'Draft Saved',
+          what2: 'Matthew Stevens',
+          what3: 'May 6, 2019 10:48:08 AM MDT'
+        }, {
+          what1: 'Draft Saved',
+          what2: 'Matthew Stevens',
+          what3: 'May 6, 2019 10:48:08 AM MDT'
+        }, {
+          what1: 'Production Saved',
+          what2: 'Matthew Stevens',
+          what3: 'May 6, 2019 10:48:08 AM MDT'
+        }],
+        //table2
+        tableData2: [{
+          Visitor: 'Visitor Name',
+          TimeOnGuide: '54s',
+          Views: '34',
+          Status: 'Closed',
+          Date1: 'Jun 10, 2019 11:02 AM EDT'
+        }, {
+          Visitor: 'Visitor Name',
+          TimeOnGuide: '24s',
+          Views: '42',
+          Status: 'Displayed',
+          Date1: 'Jun 10, 2019 11:02 AM EDT'
+        }, {
+          Visitor: 'Visitor Name',
+          TimeOnGuide: '4s',
+          Views: '52',
+          Status: 'Closed',
+          Date1: 'Jun 10, 2019 11:02 AM EDT'
+        }, {
+          Visitor: 'Visitor Name',
+          TimeOnGuide: '42s',
+          Views: '34',
+          Status: 'Closed',
+          Date1: 'Jun 10, 2019 11:02 AM EDT'
+        }, {
+          Visitor: 'Visitor Name',
+          TimeOnGuide: '9s',
+          Views: '34',
+          Status: 'Closed',
+          Date1: 'Jun 10, 2019 11:02 AM EDT'
+        }, {
+          Visitor: 'Visitor Name',
+          TimeOnGuide: '25s',
+          Views: '34',
+          Status: 'Closed',
+          Date1: 'Jun 10, 2019 11:02 AM EDT'
+        }, {
+          Visitor: 'Visitor Name',
+          TimeOnGuide: '25s',
+          Views: '34',
+          Status: 'Closed',
+          Date1: 'Jun 10, 2019 11:02 AM EDT'
+        }, {
+          Visitor: 'Visitor Name',
+          TimeOnGuide: '25s',
+          Views: '34',
+          Status: 'Closed',
+          Date1: 'Jun 10, 2019 11:02 AM EDT'
+        }, {
+          Visitor: 'Visitor Name',
+          TimeOnGuide: '25s',
+          Views: '34',
+          Status: 'Closed',
+          Date1: 'Jun 10, 2019 11:02 AM EDT'
+        }, {
+          Visitor: 'Visitor Name',
+          TimeOnGuide: '25s',
+          Views: '34',
+          Status: 'Closed',
+          Date1: 'Jun 10, 2019 11:02 AM EDT'
+        }, {
+          Visitor: 'Visitor Name',
+          TimeOnGuide: '25s',
+          Views: '34',
+          Status: 'Closed',
+          Date1: 'Jun 10, 2019 11:02 AM EDT'
+        }, {
+          Visitor: 'Visitor Name',
+          TimeOnGuide: '25s',
+          Views: '34',
+          Status: 'Closed',
+          Date1: 'Jun 10, 2019 11:02 AM EDT'
+        }, {
+          Visitor: 'Visitor Name',
+          TimeOnGuide: '25s',
+          Views: '34',
+          Status: 'Closed',
+          Date1: 'Jun 10, 2019 11:02 AM EDT'
+        }, {
+          Visitor: 'Visitor Name',
+          TimeOnGuide: '12s',
+          Views: '47',
+          Status: 'Closed',
+          Date1: 'Jun 10, 2019 11:02 AM EDT'
+        }, {
+          Visitor: 'Visitor Name',
+          TimeOnGuide: '54s',
+          Views: '25',
+          Status: 'Closed',
+          Date1: 'Jun 10, 2019 11:02 AM EDT'
+        }, {
+          Visitor: 'Visitor Name',
+          TimeOnGuide: '34s',
+          Views: '15',
+          Status: 'Displayed',
+          Date1: 'Jun 10, 2019 11:02 AM EDT'
+        }, {
+          Visitor: 'Visitor Name',
+          TimeOnGuide: '54s',
+          Views: '34',
+          Status: 'Displayed',
+          Date1: 'Jun 10, 2019 11:02 AM EDT'
+        }],
+        //table3
+        tableData3: [{
+          Account: 'Account Name Here',
+          Responses: '12',
+          Detractors: '52',
+          Passives: '42',
+          Promoters: '5',
+          AverageScore: '42',
+          NPS: '58'
+        }, {
+          Account: 'Account',
+          Responses: '572',
+          Detractors: '75',
+          Passives: '37',
+          Promoters: '75',
+          AverageScore: '75',
+          NPS: '75'
+        }, {
+          Account: 'Account',
+          Responses: '572',
+          Detractors: '5',
+          Passives: '8',
+          Promoters: '70',
+          AverageScore: '72',
+          NPS: '55'
+        }, {
+          Account: 'Account Name',
+          Responses: '5772',
+          Detractors: '72',
+          Passives: '72',
+          Promoters: '73',
+          AverageScore: '4',
+          NPS: '75'
+        }, {
+          Account: 'Some Account',
+          Responses: '72',
+          Detractors: '72',
+          Passives: '75',
+          Promoters: '45',
+          AverageScore: '45',
+          NPS: '78'
+        }],
+        //table4
+        tableData4: [{
+          VisitorID: 'Some Visitor',
+          Date2: 'May 19, 2019 9:34:19 AM MDT',
+          Channel: 'In-app',
+          Rating: '9',
+          Account: 'Pendo'
+        }, {
+          VisitorID: 'Some Other Visitor',
+          Date2: 'May 19, 2019 9:34:19 AM MDT',
+          Channel: 'In-app',
+          Rating: '9',
+          Account: 'Pendo'
+        }, {
+          VisitorID: 'Some Other Visitor',
+          Date2: 'May 19, 2019 9:34:19 AM MDT',
+          Channel: 'In-app',
+          Rating: '9',
+          Account: 'Pendo'
+        }, {
+          VisitorID: 'Some Visitor',
+          Date2: 'May 19, 2019 9:34:19 AM MDT',
+          Channel: 'In-app',
+          Rating: '7',
+          Account: 'Pendo'
+        }, {
+          VisitorID: 'Some Visitor',
+          Date2: 'May 19, 2019 9:34:19 AM MDT',
+          Channel: 'In-app',
+          Rating: '9',
+          Account: 'Pendo'
+        }, {
+          VisitorID: 'Some Visitor',
+          Date2: 'May 19, 2019 9:34:19 AM MDT',
+          Channel: 'In-app',
+          Rating: '10',
+          Account: 'Pendo'
+        }, {
+          VisitorID: 'Some Visitor',
+          Date2: 'May 19, 2019 9:34:19 AM MDT',
+          Channel: 'In-app',
+          Rating: '5',
+          Account: 'Pendo'
+        }, {
+          VisitorID: 'Some Visitor',
+          Date2: 'May 19, 2019 9:34:19 AM MDT',
+          Channel: 'In-app',
+          Rating: '3',
+          Account: 'Pendo'
+        }, {
+          VisitorID: 'Some Visitor',
+          Date2: 'May 19, 2019 9:34:19 AM MDT',
+          Channel: 'In-app',
+          Rating: '10',
+          Account: 'Pendo'
+        }, {
+          VisitorID: 'Some Visitor',
+          Date2: 'May 19, 2019 9:34:19 AM MDT',
+          Channel: 'In-app',
+          Rating: '5',
+          Account: 'Pendo'
+        }, {
+          VisitorID: 'Some Visitor',
+          Date2: 'May 19, 2019 9:34:19 AM MDT',
+          Channel: 'In-app',
+          Rating: '3',
+          Account: 'Pendo'
+        }, {
+          VisitorID: 'Some Visitor',
+          Date2: 'May 19, 2019 9:34:19 AM MDT',
+          Channel: 'In-app',
+          Rating: '5',
+          Account: 'Pendo'
+        }, {
+          VisitorID: 'Some Visitor',
+          Date2: 'May 19, 2019 9:34:19 AM MDT',
+          Channel: 'In-app',
+          Rating: '3',
+          Account: 'Pendo'
+        }, {
+          VisitorID: 'Some Visitor',
+          Date2: 'May 19, 2019 9:34:19 AM MDT',
+          Channel: 'In-app',
+          Rating: '10',
+          Account: 'Pendo'
+        }, {
+          VisitorID: 'Some Visitor',
+          Date2: 'May 19, 2019 9:34:19 AM MDT',
+          Channel: 'In-app',
+          Rating: '5',
+          Account: 'Pendo'
+        }, {
+          VisitorID: 'Some Visitor',
+          Date2: 'May 19, 2019 9:34:19 AM MDT',
+          Channel: 'In-app',
+          Rating: '3',
+          Account: 'Pendo'
+        }, {
+          VisitorID: 'Another Visitor',
+          Date2: 'May 19, 2019 9:34:19 AM MDT',
+          Channel: 'In-app',
+          Rating: '9',
+          Account: 'Pendo'
+        }],
+        //tableData
+        tableDataGen: [{
+          General1: 'Time Zone',
+          General2: 'Eastern'
+        }, {
+          General1: 'Enabled Login Methods',
+          General2: 'Username & Password, Google SSO, SAML SSO'
+        }, {
+          General1: 'Log remote addresses',
+          General2: 'Enabled'
+        }, {
+          General1: 'Require HTTPS Access',
+          General2: 'No'
+        }, {
+          General1: 'Text Capture',
+          General2: 'Yes'
+        }, {
+          General1: 'Parent Accounts',
+          General2: 'Enabled'
+        }, {
+          General1: 'Do not use data for internal Pendo analysis',
+          General2: 'Enabled'
+        }, {
+          General1: 'SendGrid email functionality',
+          General2: 'Enabled'
+        }, {
+          General1: 'Show Anonymous Visitor Data',
+          General2: 'Enabled'
+        }, {
+          General1: 'Maximum Session Length',
+          General2: '168 hours'
+        }]
       }
     }
   };
   var Ctor = Vue.extend(Main)
   new Ctor().$mount('#app');
+  Highcharts.setOptions({
+    chart: {
+      style: {
+        fontFamily: 'proxima-nova, arial, sans-serif'
+      }
+    },
+    colors: ['#229CA8', '#FF4876', '#8DDDB6', '#A973F2', '#EFBE53', '#07699B']
+  });
+  //Highcharts  bar chart 1
+  Highcharts.chart('sentiment1', {
+    chart: {
+      type: 'column'
+    },
+    title: {
+      text: ''
+    },
+    subtitle: {
+      text: ''
+    },
+    xAxis: {
+      categories: [
+        'Jan',
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'Jun',
+        'Jul',
+        'Aug',
+        'Sep',
+        'Oct',
+        'Nov',
+        'Dec'
+      ],
+      crosshair: true
+    },
+    yAxis: {
+      min: 0,
+      title: {
+        text: ''
+      }
+    },
+    plotOptions: {
+      column: {
+        pointPadding: 0.2,
+        borderWidth: 0
+      }
+    },
+    series: [{
+      name: 'First Time Visitors',
+      data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+    }, {
+      name: 'Returning Visitors',
+      data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+    }]
+  });
+  //Highcharts bar chart 2
+  Highcharts.chart('sentiment22', {
+    chart: {
+      type: 'column'
+    },
+    title: {
+      text: ''
+    },
+    legend: {
+      enabled: false
+    },
+    xAxis: {
+      categories: [
+        'Step 1',
+        'Step 2',
+        'Step 3'
+      ],
+      crosshair: true
+    },
+    yAxis: {
+      title: {
+        text: ''
+      }
+    },
+    series: [{
+      name: 'Seconds',
+      data: [
+        [37],
+        [22],
+        [2]
+      ]
+    }]
+  });
+  //Highcharts frequency
+  Highcharts.chart('sentiment2', {
+    chart: {
+      type: 'bar',
+      margin: [0, 0, 40, 0],
+      animation: false
+    },
+    colors: ['#8DDDB6', '#FF4876', '#229CA8'],
+    title: {
+      text: ''
+    },
+    xAxis: {
+      categories: ['']
+    },
+    yAxis: {
+      visible: false
+    },
+    legend: {
+      align: 'left',
+      floating: 'true',
+      reversed: true
+    },
+    plotOptions: {
+      series: {
+        stacking: 'percent'
+      }
+    },
+    exporting: {
+      enabled: false
+    },
+    series: [{
+      name: 'Detractors',
+      data: [5]
+    }, {
+      name: 'Passive',
+      data: [12]
+    }, {
+      name: 'Promoters',
+      data: [88]
+    }]
+  });
+  var ranges = [
+    [1541005240, 82, 78],
+    [1543683640, 80, 76],
+    [1546275640, 79, 75],
+    [1548954040, 73, 69],
+    [1551632440, 70, 66],
+    [1554051640, 67, 63],
+    [1556730040, 58, 54],
+    [1559322040, 59, 55]
+  ],
+  averages = [
+    [1541005240, 80],
+    [1543683640, 78],
+    [1546275640, 77],
+    [1548954040, 71],
+    [1551632440, 68],
+    [1554051640, 65],
+    [1556730040, 56],
+    [1559322040, 57]
+  ];
+  Highcharts.chart('sentimentX', {
+    title: {
+      text: ''
+    },
+    xAxis: {
+      type: 'datetime'
+    },
+    yAxis: {
+      title: {
+        text: null
+      }
+    },
+    tooltip: {
+      crosshairs: true,
+      shared: true,
+      valueSuffix: ''
+    },
+    legend: {
+    },
+    series: [{
+      name: 'NPS',
+      data: averages,
+      zIndex: 1,
+      marker: {
+        fillColor: 'white',
+        lineWidth: 2,
+        lineColor: Highcharts.getOptions().colors[0]
+      }
+    }, {
+      name: 'Range',
+      data: ranges,
+      type: 'arearange',
+      lineWidth: 0,
+      linkedTo: ':previous',
+      color: Highcharts.getOptions().colors[0],
+      fillOpacity: 0.3,
+      zIndex: 0,
+      marker: {
+        enabled: false
+      }
+    }]
+  });
+  Highcharts.chart('sentimentY', {
+    chart: {
+      type: 'scatter',
+      zoomType: 'xy'
+    },
+    title: {
+      text: ''
+    },
+    subtitle: {
+      text: ''
+    },
+    xAxis: {
+      title: {
+        enabled: true,
+        text: ''
+      },
+      startOnTick: true,
+      endOnTick: true,
+      showLastLabel: true
+    },
+    yAxis: {
+      title: {
+        text: ''
+      }
+    },
+    plotOptions: {
+      scatter: {
+        marker: {
+          radius: 5,
+          states: {
+            hover: {
+              enabled: true,
+              lineColor: 'rgb(100,100,100)'
+            }
+          }
+        },
+        states: {
+          hover: {
+            marker: {
+              enabled: false
+            }
+          }
+        },
+        tooltip: {
+          headerFormat: '<b>{series.name}</b><br>',
+          pointFormat: '{point.x} cm, {point.y} kg'
+        }
+      }
+    },
+    series: [{
+      name: 'Promoter',
+      //color: 'rgba(223, 83, 83, .5)',
+      data:[
+        [10, 51.6], [10, 59.0], [10, 49.2], [10, 63.0], [10, 53.6],
+        [10, 59.0], [10, 47.6], [10, 69.8], [10, 66.8], [10, 75.2],
+        [10, 55.2], [10, 54.2], [10, 62.5], [10, 42.0], [10, 50.0],
+        [10, 49.8], [10, 49.2], [9, 73.2], [9, 47.8], [9, 68.8],
+        [9, 50.6], [9, 82.5], [9, 57.2], [9, 87.8], [9, 72.8],
+        [9, 70.5], [9, 52.7], [9, 62.7], [9, 86.3], [9, 66.4],
+        [9, 63.6], [9, 53.4], [9, 54.5], [9, 53.6], [9, 60.0],
+        [9, 73.6], [9, 61.4], [9, 55.5], [9, 63.6], [9, 60.9],
+        [9, 71.8], [9, 55.5], [9, 48.6], [9, 66.4], [9, 67.3]
+      ]
+    }, {
+      name: 'Passive',
+      //color: 'rgba(119, 152, 191, .5)',
+      data: [
+        [8, 51.6], [8, 59.0], [8, 49.2], [8, 63.0], [8, 53.6],
+        [8, 59.0], [8, 47.6], [8, 69.8], [8, 66.8], [8, 75.2],
+        [8, 55.2], [8, 54.2], [8, 62.5], [8, 42.0], [8, 50.0],
+        [8, 49.8], [8, 49.2], [8, 73.2], [8, 47.8], [8, 68.8],
+        [8, 50.6], [7, 82.5], [7, 57.2], [7, 87.8], [7, 72.8],
+        [8, 70.5], [7, 52.7], [7, 62.7], [7, 86.3], [7, 66.4],
+        [8, 63.6], [7, 53.4], [7, 54.5], [7, 53.6], [7, 60.0],
+        [8, 73.6], [7, 61.4], [7, 55.5], [7, 63.6], [7, 60.9],
+        [8, 71.8], [7, 55.5], [7, 48.6], [7, 66.4], [7, 67.3]
+      ]
+    }, {
+      name: 'Detractor',
+      //color: 'rgba(119, 152, 191, .5)',
+      data: [
+        [6, 51.6], [6, 59.0], [6, 49.2], [6, 63.0], [6, 53.6],
+        [5, 59.0], [5, 47.6], [5, 69.8], [5, 66.8], [5, 75.2],
+        [5, 55.2], [5, 54.2], [5, 62.5], [5, 42.0], [5, 50.0],
+        [5, 49.8], [5, 49.2], [4, 73.2], [4, 47.8], [4, 68.8],
+        [4, 50.6], [4, 82.5], [4, 57.2], [4, 87.8], [4, 72.8],
+        [3, 70.5], [3, 52.7], [3, 62.7], [3, 86.3], [2, 66.4],
+        [2, 63.6], [2, 53.4], [2, 54.5], [2, 53.6], [2, 60.0],
+        [2, 73.6], [2, 61.4], [2, 55.5], [2, 63.6], [2, 60.9],
+        [1, 71.8], [1, 55.5], [1, 48.6], [1, 66.4], [1, 67.3]
+      ]
+    }]
+  });
   feather.replace()
   </script>
 </body>
