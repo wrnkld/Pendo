@@ -41,10 +41,25 @@
         <!-- row -->
         <el-row :gutter="32">
           <!-- col header -->
-          <el-col :span="24">
+          <el-col :span="6">
             <h1 class="page-title">Insights</h1>
           </el-col>
+          <!-- col actions -->
+          <el-col :span="18">
+            <div style="float: right;">
+              <el-tooltip content="Delete">
+                <el-button type="text"><i data-feather="trash-2"></i></el-button>
+              </el-tooltip>
+              <el-button type="secondary">Button</el-button>
+              <el-button type="primary">Button</el-button>
+            </div>
+          </el-col>
         </el-row>
+        <!-- tabs -->
+        <el-tabs v-model="activeNameInsights" @tab-click="handleClick">
+          <el-tab-pane label="All" name="second">All</el-tab-pane>
+          <el-tab-pane label="Recommended" name="first">Recommended</el-tab-pane>
+        </el-tabs>
       </el-tab-pane>
       <!-- GUIDES -->
       <!-- GUIDES -->
@@ -55,10 +70,22 @@
         <!-- row -->
         <el-row :gutter="32">
           <!-- col header -->
-          <el-col :span="24">
+          <el-col :span="6">
             <h1 class="page-title">Guides</h1>
           </el-col>
+          <!-- col actions -->
+          <el-col :span="18">
+            <div style="float: right;">
+              <el-button type="primary">New Guide</el-button>
+            </div>
+          </el-col>
         </el-row>
+        <!-- tabs -->
+        <el-tabs v-model="activeNameGuides" @tab-click="handleClick">
+          <el-tab-pane label="All" name="third">All</el-tab-pane>
+          <el-tab-pane label="Public" name="second">Public</el-tab-pane>
+          <el-tab-pane label="My Guides" name="first">My Guides</el-tab-pane>
+        </el-tabs>
       </el-tab-pane>
       <!-- SENTIMENT -->
       <!-- SENTIMENT -->
@@ -84,7 +111,7 @@
           </el-col>
         </el-row>
         <!-- tabs -->
-        <el-tabs v-model="activeNamesentiment" @tab-click="handleClick">
+        <el-tabs v-model="activeNameSentiment" @tab-click="handleClick">
           <el-tab-pane label="Settings" name="first">
             <!-- row -->
             <el-row :gutter="32">
@@ -511,10 +538,25 @@
         <!-- row -->
         <el-row :gutter="32">
           <!-- col header -->
-          <el-col :span="24">
+          <el-col :span="6">
             <h1 class="page-title">Feedback</h1>
           </el-col>
+          <!-- col actions -->
+          <el-col :span="18">
+            <div style="float: right;">
+              <el-tooltip content="Delete">
+                <el-button type="text"><i data-feather="trash-2"></i></el-button>
+              </el-tooltip>
+              <el-button type="secondary">Button</el-button>
+              <el-button type="primary">Button</el-button>
+            </div>
+          </el-col>
         </el-row>
+        <!-- tabs -->
+        <el-tabs v-model="activeNameFeedback" @tab-click="handleClick">
+          <el-tab-pane label="Summary" name="first">Summary</el-tab-pane>
+          <el-tab-pane label="All Requests" name="second">All Requests</el-tab-pane>
+        </el-tabs>
       </el-tab-pane>
       <!-- SETTINGS -->
       <!-- SETTINGS -->
@@ -525,10 +567,23 @@
         <!-- row -->
         <el-row :gutter="32">
           <!-- col header -->
-          <el-col :span="24">
+          <el-col :span="6">
             <h1 class="page-title">Settings</h1>
           </el-col>
+          <!-- col actions -->
+          <el-col :span="18">
+            <div style="float: right;">
+              <el-button type="secondary">Add Integration</el-button>
+              <el-button type="primary">Add Application</el-button>
+            </div>
+          </el-col>
         </el-row>
+        <!-- tabs -->
+        <el-tabs v-model="activeNameSettings" @tab-click="handleClick">
+          <el-tab-pane label="Subscription Settings" name="first">Subscription Settings</el-tab-pane>
+          <el-tab-pane label="Applications" name="second">Applications</el-tab-pane>
+          <el-tab-pane label="Integrations" name="third">Integrations</el-tab-pane>
+        </el-tabs>
       </el-tab-pane>
     </el-tabs>
     <div class="corner-menu">
@@ -555,7 +610,11 @@
     data() {
       return {
         activeNameMain:'Settings',
-        activeNamesentiment: 'first',
+        activeNameInsights: 'first',
+        activeNameGuides: 'first',
+        activeNameSentiment: 'first',
+        activeNameFeedback: 'first',
+        activeNameSettings: 'first',
         username:'MatthewStevens',
         //datepicker
         pickerOptions: {
@@ -600,8 +659,6 @@
         valueR: '',
         valueS: '',
         valueT: '',
-        //tab
-        activeName: 'first',
         //table1
         tableData1: [{
           what1: 'Application',
