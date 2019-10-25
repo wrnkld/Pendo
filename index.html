@@ -27,8 +27,14 @@
         <!-- row -->
         <el-row :gutter="32">
           <!-- col header -->
-          <el-col :span="24">
-            <h1 class="page-title">db</h1>
+          <el-col :span="12">
+            <h1 class="page-title">Dashboard</h1>
+          </el-col>
+          <!-- col actions -->
+          <el-col :span="12">
+            <div style="float: right;">
+              <el-button type="primary">Add Widget</el-button>
+            </div>
           </el-col>
         </el-row>
       </el-tab-pane>
@@ -41,17 +47,13 @@
         <!-- row -->
         <el-row :gutter="32">
           <!-- col header -->
-          <el-col :span="6">
+          <el-col :span="12">
             <h1 class="page-title">Insights</h1>
           </el-col>
           <!-- col actions -->
-          <el-col :span="18">
+          <el-col :span="12">
             <div style="float: right;">
-              <el-tooltip content="Delete">
-                <el-button type="text"><i data-feather="trash-2"></i></el-button>
-              </el-tooltip>
-              <el-button type="secondary">Button</el-button>
-              <el-button type="primary">Button</el-button>
+              <el-button type="primary">Add Insight</el-button>
             </div>
           </el-col>
         </el-row>
@@ -76,7 +78,7 @@
           <!-- col actions -->
           <el-col :span="18">
             <div style="float: right;">
-              <el-button type="primary">New Guide</el-button>
+              <el-button type="primary">Add Guide</el-button>
             </div>
           </el-col>
         </el-row>
@@ -102,9 +104,6 @@
           <!-- col actions -->
           <el-col :span="18">
             <div style="float: right;">
-              <el-tooltip content="Delete">
-                <el-button type="text"><i data-feather="trash-2"></i></el-button>
-              </el-tooltip>
               <el-button type="secondary">Add Widget</el-button>
               <el-button type="primary">Edit Survey</el-button>
             </div>
@@ -544,18 +543,15 @@
           <!-- col actions -->
           <el-col :span="18">
             <div style="float: right;">
-              <el-tooltip content="Delete">
-                <el-button type="text"><i data-feather="trash-2"></i></el-button>
-              </el-tooltip>
-              <el-button type="secondary">Button</el-button>
-              <el-button type="primary">Button</el-button>
+              <el-button type="secondary">Add Widget</el-button>
+              <el-button type="primary">Add Request</el-button>
             </div>
           </el-col>
         </el-row>
         <!-- tabs -->
         <el-tabs v-model="activeNameFeedback" @tab-click="handleClick">
-          <el-tab-pane label="Summary" name="first">Summary</el-tab-pane>
-          <el-tab-pane label="All Requests" name="second">All Requests</el-tab-pane>
+          <el-tab-pane label="Overview" name="first">Overview</el-tab-pane>
+          <el-tab-pane label="All" name="second">All</el-tab-pane>
         </el-tabs>
       </el-tab-pane>
       <!-- SETTINGS -->
@@ -587,7 +583,6 @@
       </el-tab-pane>
     </el-tabs>
     <div class="corner-menu">
-      <el-button type="text" class="cornersearch"><i data-feather="search"></i></el-button>
       <el-button type="text" class="cornerbell"><i data-feather="bell"></i></el-button>
       <el-dropdown trigger="click">
         <span class="el-dropdown-link">

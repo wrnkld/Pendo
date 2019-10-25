@@ -398,9 +398,6 @@ td:last-child {
   right: 32px;
   top: 14px;
 }
-.cornersearch {
-  padding-top: 4px;
-}
 .cornerbell {
   margin-right: 10px;
   padding-top: 4px;
@@ -448,4 +445,7 @@ td:last-child {
 .tagtop {
   border-top: 1px solid #eaecf1;
   padding-top: 16px;
+}
+.page-title {
+  margin: 10px 0 20px 0;
 }
