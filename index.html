@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pendo Future</title>
+  <title>Pendo</title>
   <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
   <link rel="stylesheet" href="https://use.typekit.net/awf7pyi.css">
   <link rel="stylesheet" href="css/pendoelement.css">
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="https://code.highcharts.com/highcharts-more.js"></script>
+  <script src="https://code.highcharts.com/modules/treemap.js"></script>
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/element-ui/lib/index.js"></script>
   <script src="https://unpkg.com/element-ui/lib/umd/locale/en.js"></script>
@@ -27,14 +28,156 @@
         <!-- row -->
         <el-row :gutter="32">
           <!-- col header -->
-          <el-col :span="12">
+          <el-col :xs="24" :sm="6" :md="6" :lg="6" :xl="6">
             <h1 class="page-title">Dashboard</h1>
           </el-col>
           <!-- col actions -->
-          <el-col :span="12">
+          <el-col :xs="24" :sm="18" :md="18" :lg="18" :xl="18">
             <div style="float: right;">
+              <el-button type="secondary">Share</el-button>
               <el-button type="primary">Add Widget</el-button>
             </div>
+          </el-col>
+        </el-row>
+        <!-- row -->
+        <el-row :gutter="32" style="margin-top: 24px;">
+          <!-- col -->
+          <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
+            <el-card class="box-card" shadow="never">
+              <div slot="header">
+                <span class="title">This Chart</span>
+                <div class="card-actions">
+                  <el-tooltip content="Download Chart" placement="top">
+                    <el-button type="text"><i data-feather="download"></i></el-button>
+                  </el-tooltip>
+                  <el-dropdown trigger="click">
+                    <el-button type="text"><i data-feather="more-horizontal"></i></el-button>
+                    <el-dropdown-menu slot="dropdown">
+                      <el-dropdown-item>Edit Widget</el-dropdown-item>
+                      <el-dropdown-item>Remove Widget</el-dropdown-item>
+                    </el-dropdown-menu>
+                  </el-dropdown>
+                </div>
+              </div>
+              <div class="pendo-metric__label">Everyone</div>
+              <div id="containerDB1" class="chartdisplay"></div>
+            </el-card>
+          </el-col>
+          <!-- col -->
+          <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
+            <el-card class="box-card" shadow="never">
+              <div slot="header">
+                <span class="title">Another Chart</span>
+                <div class="card-actions">
+                  <el-tooltip content="Download Chart" placement="top">
+                    <el-button type="text"><i data-feather="download"></i></el-button>
+                  </el-tooltip>
+                  <el-dropdown trigger="click">
+                    <el-button type="text"><i data-feather="more-horizontal"></i></el-button>
+                    <el-dropdown-menu slot="dropdown">
+                      <el-dropdown-item>Edit Widget</el-dropdown-item>
+                      <el-dropdown-item>Remove Widget</el-dropdown-item>
+                    </el-dropdown-menu>
+                  </el-dropdown>
+                </div>
+              </div>
+              <div class="pendo-metric__label">Everyone</div>
+              <div id="containerDB2" class="chartdisplay"></div>
+            </el-card>
+          </el-col>
+        </el-row>
+        <!-- row -->
+        <el-row :gutter="32">
+          <!-- col -->
+          <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
+            <el-card class="box-card" shadow="never">
+              <div slot="header">
+                <span class="title">Favorite Chart</span>
+                <div class="card-actions">
+                  <el-tooltip content="Download Chart" placement="top">
+                    <el-button type="text"><i data-feather="download"></i></el-button>
+                  </el-tooltip>
+                  <el-dropdown trigger="click">
+                    <el-button type="text"><i data-feather="more-horizontal"></i></el-button>
+                    <el-dropdown-menu slot="dropdown">
+                      <el-dropdown-item>Edit Widget</el-dropdown-item>
+                      <el-dropdown-item>Remove Widget</el-dropdown-item>
+                    </el-dropdown-menu>
+                  </el-dropdown>
+                </div>
+              </div>
+              <div class="pendo-metric__label">Everyone</div>
+              <div id="containerDB5" class="chartdisplay"></div>
+            </el-card>
+          </el-col>
+          <!-- col -->
+          <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
+            <el-card class="box-card" shadow="never">
+              <div slot="header">
+                <span class="title">Love This Chart</span>
+                <div class="card-actions">
+                  <el-tooltip content="Download Chart" placement="top">
+                    <el-button type="text"><i data-feather="download"></i></el-button>
+                  </el-tooltip>
+                  <el-dropdown trigger="click">
+                    <el-button type="text"><i data-feather="more-horizontal"></i></el-button>
+                    <el-dropdown-menu slot="dropdown">
+                      <el-dropdown-item>Edit Widget</el-dropdown-item>
+                      <el-dropdown-item>Remove Widget</el-dropdown-item>
+                    </el-dropdown-menu>
+                  </el-dropdown>
+                </div>
+              </div>
+              <div class="pendo-metric__label">Everyone</div>
+              <div id="containerDB6" class="chartdisplay"></div>
+            </el-card>
+          </el-col>
+        </el-row>
+        <!-- row -->
+        <el-row :gutter="32">
+          <!-- col -->
+          <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
+            <el-card class="box-card" shadow="never">
+              <div slot="header">
+                <span class="title">That Chart</span>
+                <div class="card-actions">
+                  <el-tooltip content="Download Chart" placement="top">
+                    <el-button type="text"><i data-feather="download"></i></el-button>
+                  </el-tooltip>
+                  <el-dropdown trigger="click">
+                    <el-button type="text"><i data-feather="more-horizontal"></i></el-button>
+                    <el-dropdown-menu slot="dropdown">
+                      <el-dropdown-item>Edit Widget</el-dropdown-item>
+                      <el-dropdown-item>Remove Widget</el-dropdown-item>
+                    </el-dropdown-menu>
+                  </el-dropdown>
+                </div>
+              </div>
+              <div class="pendo-metric__label">Everyone</div>
+              <div id="containerDB7" class="chartdisplay"></div>
+            </el-card>
+          </el-col>
+          <!-- col -->
+          <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
+            <el-card class="box-card" shadow="never">
+              <div slot="header">
+                <span class="title">Some Chart</span>
+                <div class="card-actions">
+                  <el-tooltip content="Download Chart" placement="top">
+                    <el-button type="text"><i data-feather="download"></i></el-button>
+                  </el-tooltip>
+                  <el-dropdown trigger="click">
+                    <el-button type="text"><i data-feather="more-horizontal"></i></el-button>
+                    <el-dropdown-menu slot="dropdown">
+                      <el-dropdown-item>Edit Widget</el-dropdown-item>
+                      <el-dropdown-item>Remove Widget</el-dropdown-item>
+                    </el-dropdown-menu>
+                  </el-dropdown>
+                </div>
+              </div>
+              <div class="pendo-metric__label">Everyone</div>
+              <div id="containerDB8" class="chartdisplay"></div>
+            </el-card>
           </el-col>
         </el-row>
       </el-tab-pane>
@@ -47,11 +190,11 @@
         <!-- row -->
         <el-row :gutter="32">
           <!-- col header -->
-          <el-col :span="12">
+          <el-col :xs="24" :sm="6" :md="6" :lg="6" :xl="6">
             <h1 class="page-title">Insights</h1>
           </el-col>
           <!-- col actions -->
-          <el-col :span="12">
+        <el-col :xs="24" :sm="18" :md="18" :lg="18" :xl="18">
             <div style="float: right;">
               <el-button type="primary">Add Insight</el-button>
             </div>
@@ -59,8 +202,60 @@
         </el-row>
         <!-- tabs -->
         <el-tabs v-model="activeNameInsights" @tab-click="handleClick">
-          <el-tab-pane label="All" name="second">All</el-tab-pane>
-          <el-tab-pane label="Recommended" name="first">Recommended</el-tab-pane>
+          <el-tab-pane label="All" name="second">
+            <!-- row -->
+            <el-row :gutter="32">
+              <el-col :span="24">
+                <el-card class="box-card" shadow="never">
+                  <div slot="header">
+                    <span class="title">thing</span>
+                    <div class="card-actions">
+                      <el-tooltip content="Download Chart" placement="top">
+                        <el-button type="text"><i data-feather="download"></i></el-button>
+                      </el-tooltip>
+                      <el-dropdown trigger="click">
+                        <el-button type="text"><i data-feather="more-horizontal"></i></el-button>
+                        <el-dropdown-menu slot="dropdown">
+                          <el-dropdown-item>Edit Widget</el-dropdown-item>
+                          <el-dropdown-item>Remove Widget</el-dropdown-item>
+                        </el-dropdown-menu>
+                      </el-dropdown>
+                    </div>
+                  </div>
+                  <div class="pendo-metric__label">Segment 4</div>
+                  <div class="pendo-metric__label">Last Month</div>
+                  hey
+                </el-card>
+              </el-col>
+            </el-row>
+          </el-tab-pane>
+          <el-tab-pane label="Recommended" name="first">
+            <!-- row -->
+            <el-row :gutter="32">
+              <el-col :span="24">
+                <el-card class="box-card" shadow="never">
+                  <div slot="header">
+                    <span class="title">thing</span>
+                    <div class="card-actions">
+                      <el-tooltip content="Download Chart" placement="top">
+                        <el-button type="text"><i data-feather="download"></i></el-button>
+                      </el-tooltip>
+                      <el-dropdown trigger="click">
+                        <el-button type="text"><i data-feather="more-horizontal"></i></el-button>
+                        <el-dropdown-menu slot="dropdown">
+                          <el-dropdown-item>Edit Widget</el-dropdown-item>
+                          <el-dropdown-item>Remove Widget</el-dropdown-item>
+                        </el-dropdown-menu>
+                      </el-dropdown>
+                    </div>
+                  </div>
+                  <div class="pendo-metric__label">Segment 4</div>
+                  <div class="pendo-metric__label">Last Month</div>
+                  hey
+                </el-card>
+              </el-col>
+            </el-row>
+          </el-tab-pane>
         </el-tabs>
       </el-tab-pane>
       <!-- GUIDES -->
@@ -72,11 +267,11 @@
         <!-- row -->
         <el-row :gutter="32">
           <!-- col header -->
-          <el-col :span="6">
+          <el-col :xs="24" :sm="6" :md="6" :lg="6" :xl="6">
             <h1 class="page-title">Guides</h1>
           </el-col>
           <!-- col actions -->
-          <el-col :span="18">
+          <el-col :xs="24" :sm="18" :md="18" :lg="18" :xl="18">
             <div style="float: right;">
               <el-button type="primary">Add Guide</el-button>
             </div>
@@ -84,9 +279,87 @@
         </el-row>
         <!-- tabs -->
         <el-tabs v-model="activeNameGuides" @tab-click="handleClick">
-          <el-tab-pane label="All" name="third">All</el-tab-pane>
-          <el-tab-pane label="Public" name="second">Public</el-tab-pane>
-          <el-tab-pane label="My Guides" name="first">My Guides</el-tab-pane>
+          <el-tab-pane label="All" name="third">
+            <!-- row -->
+            <el-row :gutter="32">
+              <el-col :span="24">
+                <el-card class="box-card" shadow="never">
+                  <div slot="header">
+                    <span class="title">thing</span>
+                    <div class="card-actions">
+                      <el-tooltip content="Download Chart" placement="top">
+                        <el-button type="text"><i data-feather="download"></i></el-button>
+                      </el-tooltip>
+                      <el-dropdown trigger="click">
+                        <el-button type="text"><i data-feather="more-horizontal"></i></el-button>
+                        <el-dropdown-menu slot="dropdown">
+                          <el-dropdown-item>Edit Widget</el-dropdown-item>
+                          <el-dropdown-item>Remove Widget</el-dropdown-item>
+                        </el-dropdown-menu>
+                      </el-dropdown>
+                    </div>
+                  </div>
+                  <div class="pendo-metric__label">Segment 4</div>
+                  <div class="pendo-metric__label">Last Month</div>
+                  hey
+                </el-card>
+              </el-col>
+            </el-row>
+          </el-tab-pane>
+          <el-tab-pane label="Public" name="second">
+            <!-- row -->
+            <el-row :gutter="32">
+              <el-col :span="24">
+                <el-card class="box-card" shadow="never">
+                  <div slot="header">
+                    <span class="title">thing</span>
+                    <div class="card-actions">
+                      <el-tooltip content="Download Chart" placement="top">
+                        <el-button type="text"><i data-feather="download"></i></el-button>
+                      </el-tooltip>
+                      <el-dropdown trigger="click">
+                        <el-button type="text"><i data-feather="more-horizontal"></i></el-button>
+                        <el-dropdown-menu slot="dropdown">
+                          <el-dropdown-item>Edit Widget</el-dropdown-item>
+                          <el-dropdown-item>Remove Widget</el-dropdown-item>
+                        </el-dropdown-menu>
+                      </el-dropdown>
+                    </div>
+                  </div>
+                  <div class="pendo-metric__label">Segment 4</div>
+                  <div class="pendo-metric__label">Last Month</div>
+                  hey
+                </el-card>
+              </el-col>
+            </el-row>
+          </el-tab-pane>
+          <el-tab-pane label="My Guides" name="first">
+            <!-- row -->
+            <el-row :gutter="32">
+              <el-col :span="24">
+                <el-card class="box-card" shadow="never">
+                  <div slot="header">
+                    <span class="title">thing</span>
+                    <div class="card-actions">
+                      <el-tooltip content="Download Chart" placement="top">
+                        <el-button type="text"><i data-feather="download"></i></el-button>
+                      </el-tooltip>
+                      <el-dropdown trigger="click">
+                        <el-button type="text"><i data-feather="more-horizontal"></i></el-button>
+                        <el-dropdown-menu slot="dropdown">
+                          <el-dropdown-item>Edit Widget</el-dropdown-item>
+                          <el-dropdown-item>Remove Widget</el-dropdown-item>
+                        </el-dropdown-menu>
+                      </el-dropdown>
+                    </div>
+                  </div>
+                  <div class="pendo-metric__label">Segment 4</div>
+                  <div class="pendo-metric__label">Last Month</div>
+                  hey
+                </el-card>
+              </el-col>
+            </el-row>
+          </el-tab-pane>
         </el-tabs>
       </el-tab-pane>
       <!-- SENTIMENT -->
@@ -98,11 +371,11 @@
         <!-- row -->
         <el-row :gutter="32">
           <!-- col header -->
-          <el-col :span="6">
+          <el-col :xs="24" :sm="6" :md="6" :lg="6" :xl="6">
             <h1 class="page-title">Sentiment</h1>
           </el-col>
           <!-- col actions -->
-          <el-col :span="18">
+          <el-col :xs="24" :sm="18" :md="18" :lg="18" :xl="18">
             <div style="float: right;">
               <el-button type="secondary">Add Widget</el-button>
               <el-button type="primary">Edit Survey</el-button>
@@ -537,11 +810,11 @@
         <!-- row -->
         <el-row :gutter="32">
           <!-- col header -->
-          <el-col :span="6">
+          <el-col :xs="24" :sm="6" :md="6" :lg="6" :xl="6">
             <h1 class="page-title">Feedback</h1>
           </el-col>
           <!-- col actions -->
-          <el-col :span="18">
+          <el-col :xs="24" :sm="18" :md="18" :lg="18" :xl="18">
             <div style="float: right;">
               <el-button type="secondary">Add Widget</el-button>
               <el-button type="primary">Add Request</el-button>
@@ -550,8 +823,60 @@
         </el-row>
         <!-- tabs -->
         <el-tabs v-model="activeNameFeedback" @tab-click="handleClick">
-          <el-tab-pane label="Overview" name="first">Overview</el-tab-pane>
-          <el-tab-pane label="All" name="second">All</el-tab-pane>
+          <el-tab-pane label="Overview" name="first">
+            <!-- row -->
+            <el-row :gutter="32">
+              <el-col :span="24">
+                <el-card class="box-card" shadow="never">
+                  <div slot="header">
+                    <span class="title">thing</span>
+                    <div class="card-actions">
+                      <el-tooltip content="Download Chart" placement="top">
+                        <el-button type="text"><i data-feather="download"></i></el-button>
+                      </el-tooltip>
+                      <el-dropdown trigger="click">
+                        <el-button type="text"><i data-feather="more-horizontal"></i></el-button>
+                        <el-dropdown-menu slot="dropdown">
+                          <el-dropdown-item>Edit Widget</el-dropdown-item>
+                          <el-dropdown-item>Remove Widget</el-dropdown-item>
+                        </el-dropdown-menu>
+                      </el-dropdown>
+                    </div>
+                  </div>
+                  <div class="pendo-metric__label">Segment 4</div>
+                  <div class="pendo-metric__label">Last Month</div>
+                  hey
+                </el-card>
+              </el-col>
+            </el-row>
+          </el-tab-pane>
+          <el-tab-pane label="All" name="second">
+            <!-- row -->
+            <el-row :gutter="32">
+              <el-col :span="24">
+                <el-card class="box-card" shadow="never">
+                  <div slot="header">
+                    <span class="title">thing</span>
+                    <div class="card-actions">
+                      <el-tooltip content="Download Chart" placement="top">
+                        <el-button type="text"><i data-feather="download"></i></el-button>
+                      </el-tooltip>
+                      <el-dropdown trigger="click">
+                        <el-button type="text"><i data-feather="more-horizontal"></i></el-button>
+                        <el-dropdown-menu slot="dropdown">
+                          <el-dropdown-item>Edit Widget</el-dropdown-item>
+                          <el-dropdown-item>Remove Widget</el-dropdown-item>
+                        </el-dropdown-menu>
+                      </el-dropdown>
+                    </div>
+                  </div>
+                  <div class="pendo-metric__label">Segment 4</div>
+                  <div class="pendo-metric__label">Last Month</div>
+                  hey
+                </el-card>
+              </el-col>
+            </el-row>
+          </el-tab-pane>
         </el-tabs>
       </el-tab-pane>
       <!-- SETTINGS -->
@@ -563,22 +888,214 @@
         <!-- row -->
         <el-row :gutter="32">
           <!-- col header -->
-          <el-col :span="6">
+          <el-col :xs="24" :sm="6" :md="6" :lg="6" :xl="6">
             <h1 class="page-title">Settings</h1>
           </el-col>
           <!-- col actions -->
-          <el-col :span="18">
+          <el-col :xs="24" :sm="18" :md="18" :lg="18" :xl="18">
             <div style="float: right;">
               <el-button type="secondary">Add Integration</el-button>
-              <el-button type="primary">Add Application</el-button>
+              <el-button type="primary">Add App</el-button>
             </div>
           </el-col>
         </el-row>
         <!-- tabs -->
         <el-tabs v-model="activeNameSettings" @tab-click="handleClick">
-          <el-tab-pane label="Subscription" name="first">Subscription Settings</el-tab-pane>
-          <el-tab-pane label="Applications" name="second">Applications</el-tab-pane>
-          <el-tab-pane label="Integrations" name="third">Integrations</el-tab-pane>
+          <el-tab-pane label="Subscription" name="first">
+            <!-- row -->
+            <el-row :gutter="32">
+              <el-col :span="24">
+                <el-card class="box-card" shadow="never">
+                  <div slot="header">
+                    <span class="title">thing</span>
+                    <div class="card-actions">
+                      <el-tooltip content="Download Chart" placement="top">
+                        <el-button type="text"><i data-feather="download"></i></el-button>
+                      </el-tooltip>
+                      <el-dropdown trigger="click">
+                        <el-button type="text"><i data-feather="more-horizontal"></i></el-button>
+                        <el-dropdown-menu slot="dropdown">
+                          <el-dropdown-item>Edit Widget</el-dropdown-item>
+                          <el-dropdown-item>Remove Widget</el-dropdown-item>
+                        </el-dropdown-menu>
+                      </el-dropdown>
+                    </div>
+                  </div>
+                  <div class="pendo-metric__label">Segment 4</div>
+                  <div class="pendo-metric__label">Last Month</div>
+                  hey
+                </el-card>
+              </el-col>
+            </el-row>
+          </el-tab-pane>
+          <el-tab-pane label="Apps" name="second">
+            <!-- row -->
+            <el-row :gutter="32">
+              <el-col :span="24">
+                <el-card class="box-card" shadow="never">
+                  <div slot="header">
+                    <span class="title">thing</span>
+                    <div class="card-actions">
+                      <el-tooltip content="Download Chart" placement="top">
+                        <el-button type="text"><i data-feather="download"></i></el-button>
+                      </el-tooltip>
+                      <el-dropdown trigger="click">
+                        <el-button type="text"><i data-feather="more-horizontal"></i></el-button>
+                        <el-dropdown-menu slot="dropdown">
+                          <el-dropdown-item>Edit Widget</el-dropdown-item>
+                          <el-dropdown-item>Remove Widget</el-dropdown-item>
+                        </el-dropdown-menu>
+                      </el-dropdown>
+                    </div>
+                  </div>
+                  <div class="pendo-metric__label">Segment 4</div>
+                  <div class="pendo-metric__label">Last Month</div>
+                  hey
+                </el-card>
+              </el-col>
+            </el-row>
+          </el-tab-pane>
+          <el-tab-pane label="Integrations" name="third">
+
+              <!-- row -->
+              <el-row :gutter="32">
+                <!-- col 1 -->
+                <el-col :xs="24" :sm="12" :md="8" :lg="4" :xl="4">
+                  <a href="#">
+                    <el-card class="box-card" shadow="hover">
+                      <div class="integration" style="background: #000000;">
+                        <img src="https://pendo-dev-extensions.storage.googleapis.com/extensions/chat/latest/assets/drift.svg" alt="Drift" />
+                      </div>
+                      <div class="title">Drift</div>
+                      <div class="subtitle">Live Chat</div>
+                    </el-card>
+                  </a>
+                </el-col>
+                <!-- col 2 -->
+                <el-col :xs="24" :sm="12" :md="8" :lg="4" :xl="4">
+                  <a href="#">
+                    <el-card class="box-card" shadow="hover">
+                      <div class="integration" style="background: #143E5E;">
+                        <img src="https://pendo-dev-extensions.storage.googleapis.com/extensions/chat/latest/assets/freshchat.svg" alt="Freshchat" />
+                      </div>
+                      <div class="title">Freshchat</div>
+                      <div class="subtitle">Live Chat</div>
+                    </el-card>
+                  </a>
+                </el-col>
+                <!-- col 3 -->
+                <el-col :xs="24" :sm="12" :md="8" :lg="4" :xl="4">
+                  <a href="#">
+                    <el-card class="box-card" shadow="hover">
+                      <div class="integration" style="background: #1F8CEB;">
+                        <img src="https://pendo-dev-extensions.storage.googleapis.com/extensions/chat/latest/assets/intercom.svg" alt="Intercom" />
+                      </div>
+                      <div class="title">Intercom</div>
+                      <div class="subtitle">Live Chat</div>
+                    </el-card>
+                  </a>
+                </el-col>
+                <!-- col 4 -->
+                <el-col :xs="24" :sm="12" :md="8" :lg="4" :xl="4">
+                  <a href="#">
+                    <el-card class="box-card" shadow="hover">
+                      <div class="integration" style="background: #A347B7;">
+                        <img src="https://pendo-dev-extensions.storage.googleapis.com/extensions/chat/latest/assets/smooch.svg" alt="Smooch" />
+                      </div>
+                      <div class="title">Smooch</div>
+                      <div class="subtitle">Live Chat</div>
+                    </el-card>
+                  </a>
+                </el-col>
+                <!-- col 5 -->
+                <el-col :xs="24" :sm="12" :md="8" :lg="4" :xl="4">
+                  <a href="#">
+                    <el-card class="box-card" shadow="hover">
+                      <div class="integration" style="background: #E95A14;">
+                        <img src="https://pendo-dev-extensions.storage.googleapis.com/extensions/chat/latest/assets/talkus.svg" alt="Talkus" />
+                      </div>
+                      <div class="title">Talkus</div>
+                      <div class="subtitle">Live Chat</div>
+                    </el-card>
+                  </a>
+                </el-col>
+                <!-- col 6 -->
+                <el-col :xs="24" :sm="12" :md="8" :lg="4" :xl="4">
+                  <a href="#">
+                    <el-card class="box-card" shadow="hover">
+                      <div class="integration" style="background: #F79A3E;">
+                        <img src="https://pendo-dev-extensions.storage.googleapis.com/extensions/chat/latest/assets/zendesk-chat.svg" alt="Zopim" />
+                      </div>
+                      <div class="title">Zopim</div>
+                      <div class="subtitle">Live Chat</div>
+                    </el-card>
+                  </a>
+                </el-col>
+              </el-row>
+              <!-- row -->
+              <el-row :gutter="32">
+                <!-- col 7 -->
+                <el-col :xs="24" :sm="12" :md="8" :lg="4" :xl="4">
+                  <a href="#">
+                    <el-card class="box-card" shadow="hover">
+                      <div class="integration" style="background: #3197D6;">
+                        <img src="https://pendo-dev-extensions.storage.googleapis.com/extensions/helpcenter/latest/assets/helpscout.svg" alt="Help Scout" />
+                      </div>
+                      <div class="title">Help Scout</div>
+                      <div class="subtitle">Knowledge Base</div>
+                    </el-card>
+                  </a>
+                </el-col>
+                <!-- col 8 -->
+                <el-col :xs="24" :sm="12" :md="8" :lg="4" :xl="4">
+                  <a href="#">
+                    <el-card class="box-card" shadow="hover">
+                      <div class="integration" style="background: #F44599;">
+                        <img src="https://pendo-dev-extensions.storage.googleapis.com/extensions/helpcenter/latest/assets/helpdocs.svg" alt="HelpDocs" />
+                      </div>
+                      <div class="title">HelpDocs</div>
+                      <div class="subtitle">Knowledge Base</div>
+                    </el-card>
+                  </a>
+                </el-col>
+                <!-- col 9 -->
+                <el-col :xs="24" :sm="12" :md="8" :lg="4" :xl="4">
+                  <a href="#">
+                    <el-card class="box-card" shadow="hover">
+                      <div class="integration" style="background: #464646;">
+                        <img src="https://pendo-dev-extensions.storage.googleapis.com/extensions/helpcenter/latest/assets/wordpress.svg" alt="Wordpress" />
+                      </div>
+                      <div class="title">Wordpress</div>
+                      <div class="subtitle">Knowledge Base</div>
+                    </el-card>
+                  </a>
+                </el-col>
+                <!-- col 10 -->
+                <el-col :xs="24" :sm="12" :md="8" :lg="4" :xl="4">
+                  <a href="#">
+                    <el-card class="box-card" shadow="hover">
+                      <div class="integration" style="background: #f8a4b3;">
+                        <img src="https://pendo-dev-extensions.storage.googleapis.com/extensions/helpcenter/latest/assets/zendesk-guide.svg" alt="Zendesk" />
+                      </div>
+                      <div class="title">Zendesk</div>
+                      <div class="subtitle">Knowledge Base</div>
+                    </el-card>
+                  </a>
+                </el-col>
+                <!-- col 11 -->
+                <el-col :xs="24" :sm="12" :md="8" :lg="4" :xl="4">
+                  <a href="#">
+                    <el-card class="box-card" shadow="hover">
+                      <div class="integration" style="background: #213245;">
+                        <img src="https://app.unbird.com/images/pendo/unbird-icon.svg" alt="Unbird" />
+                      </div>
+                      <div class="title">Unbird</div>
+                      <div class="subtitle">User Feedback</div>
+                    </el-card>
+                  </a>
+                </el-col>
+              </el-row>
+          </el-tab-pane>
         </el-tabs>
       </el-tab-pane>
     </el-tabs>
@@ -656,8 +1173,8 @@
         valueT: '',
         //table1
         tableData1: [{
-          what1: 'Application',
-          what2: 'Application Name',
+          what1: 'App',
+          what2: 'App Name',
           what3: ''
         }, {
           what1: 'Group',
@@ -1160,6 +1677,338 @@
     }]
   });
   Highcharts.chart('sentimentY', {
+    chart: {
+      type: 'scatter',
+      zoomType: 'xy'
+    },
+    title: {
+      text: ''
+    },
+    subtitle: {
+      text: ''
+    },
+    xAxis: {
+      title: {
+        enabled: true,
+        text: ''
+      },
+      startOnTick: true,
+      endOnTick: true,
+      showLastLabel: true
+    },
+    yAxis: {
+      title: {
+        text: ''
+      }
+    },
+    plotOptions: {
+      scatter: {
+        marker: {
+          radius: 5,
+          states: {
+            hover: {
+              enabled: true,
+              lineColor: 'rgb(100,100,100)'
+            }
+          }
+        },
+        states: {
+          hover: {
+            marker: {
+              enabled: false
+            }
+          }
+        },
+        tooltip: {
+          headerFormat: '<b>{series.name}</b><br>',
+          pointFormat: '{point.x} cm, {point.y} kg'
+        }
+      }
+    },
+    series: [{
+      name: 'Promoter',
+      //color: 'rgba(223, 83, 83, .5)',
+      data:[
+        [10, 51.6], [10, 59.0], [10, 49.2], [10, 63.0], [10, 53.6],
+        [10, 59.0], [10, 47.6], [10, 69.8], [10, 66.8], [10, 75.2],
+        [10, 55.2], [10, 54.2], [10, 62.5], [10, 42.0], [10, 50.0],
+        [10, 49.8], [10, 49.2], [9, 73.2], [9, 47.8], [9, 68.8],
+        [9, 50.6], [9, 82.5], [9, 57.2], [9, 87.8], [9, 72.8],
+        [9, 70.5], [9, 52.7], [9, 62.7], [9, 86.3], [9, 66.4],
+        [9, 63.6], [9, 53.4], [9, 54.5], [9, 53.6], [9, 60.0],
+        [9, 73.6], [9, 61.4], [9, 55.5], [9, 63.6], [9, 60.9],
+        [9, 71.8], [9, 55.5], [9, 48.6], [9, 66.4], [9, 67.3]
+      ]
+    }, {
+      name: 'Passive',
+      //color: 'rgba(119, 152, 191, .5)',
+      data: [
+        [8, 51.6], [8, 59.0], [8, 49.2], [8, 63.0], [8, 53.6],
+        [8, 59.0], [8, 47.6], [8, 69.8], [8, 66.8], [8, 75.2],
+        [8, 55.2], [8, 54.2], [8, 62.5], [8, 42.0], [8, 50.0],
+        [8, 49.8], [8, 49.2], [8, 73.2], [8, 47.8], [8, 68.8],
+        [8, 50.6], [7, 82.5], [7, 57.2], [7, 87.8], [7, 72.8],
+        [8, 70.5], [7, 52.7], [7, 62.7], [7, 86.3], [7, 66.4],
+        [8, 63.6], [7, 53.4], [7, 54.5], [7, 53.6], [7, 60.0],
+        [8, 73.6], [7, 61.4], [7, 55.5], [7, 63.6], [7, 60.9],
+        [8, 71.8], [7, 55.5], [7, 48.6], [7, 66.4], [7, 67.3]
+      ]
+    }, {
+      name: 'Detractor',
+      //color: 'rgba(119, 152, 191, .5)',
+      data: [
+        [6, 51.6], [6, 59.0], [6, 49.2], [6, 63.0], [6, 53.6],
+        [5, 59.0], [5, 47.6], [5, 69.8], [5, 66.8], [5, 75.2],
+        [5, 55.2], [5, 54.2], [5, 62.5], [5, 42.0], [5, 50.0],
+        [5, 49.8], [5, 49.2], [4, 73.2], [4, 47.8], [4, 68.8],
+        [4, 50.6], [4, 82.5], [4, 57.2], [4, 87.8], [4, 72.8],
+        [3, 70.5], [3, 52.7], [3, 62.7], [3, 86.3], [2, 66.4],
+        [2, 63.6], [2, 53.4], [2, 54.5], [2, 53.6], [2, 60.0],
+        [2, 73.6], [2, 61.4], [2, 55.5], [2, 63.6], [2, 60.9],
+        [1, 71.8], [1, 55.5], [1, 48.6], [1, 66.4], [1, 67.3]
+      ]
+    }]
+  });
+  //Highcharts lines
+  Highcharts.chart('containerDB1', {
+    title: {
+      text: ''
+    },
+    yAxis: {
+      title: {
+        text: ''
+      }
+    },
+    legend: {
+      align: 'center'
+    },
+    exporting: {
+      enabled: false
+    },
+    xAxis: {
+      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug']
+    },
+    series: [{
+      type: 'spline',
+      name: 'App 1',
+      data: [22, 25, 35, 37, 47, 48, 59, 70]
+    }, {
+      type: 'spline',
+      name: 'App 2',
+      data: [22, 25, 24, 36, 47, 58, 59, 69]
+    }, {
+      type: 'spline',
+      name: 'App 3',
+      data: [12, 25, 23, 36, 47, 58, 69, 70]
+    }]
+  });
+  //treemap 1
+  Highcharts.chart('containerDB2', {
+    series: [{
+      type: "treemap",
+      layoutAlgorithm: 'squarified',
+      alternateStartingDirection: true,
+      levels: [{
+        level: 1,
+        layoutAlgorithm: 'sliceAndDice',
+        dataLabels: {
+          enabled: true,
+          stroke: 0,
+          border: 0,
+        }
+      }],
+      data: [{
+        id: 'A',
+        name: '',
+        color: "#229CA8"
+      }, {
+        id: 'B',
+        name: '',
+        color: "#FF4876"
+      }, {
+        id: 'O',
+        name: '',
+        color: '#8DDDB6'
+      }, {
+        name: 'Some Page Name',
+        parent: 'A',
+        value: 5
+      }, {
+        name: 'Page Name',
+        parent: 'A',
+        value: 3
+      }, {
+        name: 'Some Page Name',
+        parent: 'A',
+        value: 4
+      }, {
+        name: 'Page Name',
+        parent: 'B',
+        value: 4
+      }, {
+        name: 'Page Name',
+        parent: 'B',
+        value: 10
+      }, {
+        name: 'Page Name',
+        parent: 'B',
+        value: 1
+      }, {
+        name: 'Another Page Name',
+        parent: 'O',
+        value: 1
+      }, {
+        name: 'Another Page Name',
+        parent: 'O',
+        value: 3
+      }, {
+        name: 'Page Name',
+        parent: 'O',
+        value: 3
+      }, {
+        name: 'A Page',
+        parent: 'K',
+        value: 2,
+        color: '#A973F2'
+      }]
+    }],
+    title: {
+      text: ''
+    }
+  });
+  //Highcharts bar chart 2
+  Highcharts.chart('containerDB5', {
+    chart: {
+      type: 'column'
+    },
+    title: {
+      text: ''
+    },
+    legend: {
+      enabled: false
+    },
+    xAxis: {
+      categories: [
+        'Step 1',
+        'Step 2',
+        'Step 3'
+      ],
+      crosshair: true
+    },
+    yAxis: {
+      title: {
+        text: ''
+      }
+    },
+    series: [{
+      name: 'Seconds',
+      data: [
+        [37],
+        [22],
+        [2]
+      ]
+    }]
+  });
+  //Highcharts  bar chart 1
+  Highcharts.chart('containerDB6', {
+    chart: {
+      type: 'column'
+    },
+    title: {
+      text: ''
+    },
+    subtitle: {
+      text: ''
+    },
+    xAxis: {
+      categories: [
+        'Jan',
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'Jun',
+        'Jul',
+        'Aug',
+        'Sep',
+        'Oct',
+        'Nov',
+        'Dec'
+      ],
+      crosshair: true
+    },
+    yAxis: {
+      min: 0,
+      title: {
+        text: ''
+      }
+    },
+    plotOptions: {
+      column: {
+        pointPadding: 0.2,
+        borderWidth: 0
+      }
+    },
+    series: [{
+      name: 'First Time Visitors',
+      data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+    }, {
+      name: 'Returning Visitors',
+      data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+    }]
+  });
+  //Highcharts bar chart 2
+  Highcharts.chart('containerDB7', {
+    chart: {
+      type: 'column'
+    },
+    title: {
+      text: ''
+    },
+    legend: {
+      enabled: false
+    },
+    xAxis: {
+      categories: [
+        '2 seconds',
+        '4 seconds',
+        '6 seconds',
+        '8 seconds',
+        '10 seconds',
+        '12 seconds',
+        '14 seconds',
+        '16 seconds',
+        '18 seconds',
+        '20 seconds',
+        '22 seconds',
+        '24 seconds'
+      ],
+      crosshair: true
+    },
+    yAxis: {
+      title: {
+        text: ''
+      }
+    },
+    series: [{
+      name: 'Total Views',
+      data: [
+        [137],
+        [131],
+        [127],
+        [124],
+        [122],
+        [93],
+        [88],
+        [76],
+        [54],
+        [43],
+        [32],
+        [29]
+      ]
+    }]
+  });
+  Highcharts.chart('containerDB8', {
     chart: {
       type: 'scatter',
       zoomType: 'xy'
