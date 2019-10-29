@@ -454,3 +454,14 @@ td:last-child {
 .page-title {
   margin: 10px 0 20px 0;
 }
+.installed {
+  border-top: 1px solid #eaecf1;
+  padding-top: 16px;
+}
+pre {
+  background: #f8f8f8;
+  border: 1px solid #ccc;
+  color: #999;
+  white-space: pre-wrap;
+  padding: 10px
+}
