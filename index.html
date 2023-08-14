@@ -206,134 +206,35 @@
             </div>
           </el-col>
         </el-row>
-        <!-- tabs -->
-        <el-tabs v-model="activeNameInsights" @tab-click="handleClick">
-          <el-tab-pane label="All" name="first">
-            <!-- row -->
-            <el-row :gutter="32">
-              <el-col :span="24">
-                <el-card class="box-card" shadow="never">
-                  <div slot="header">
-                    <span class="title">76 Insights</span>
-                    <div class="card-actions">
-                      <el-tooltip content="Manage Columns" placement="top">
-                        <el-button type="text"><i data-feather="columns"></i></el-button>
-                      </el-tooltip>
-                      <el-tooltip content="Download CSV" placement="top">
-                        <el-button type="text"><i data-feather="download"></i></el-button>
-                      </el-tooltip>
-                    </div>
+        <!-- row -->
+        <el-row :gutter="32" style="margin-top: 24px;">
+          <el-col :span="24">
+            <el-card class="box-card" shadow="never">
+              <div slot="header">
+                <span class="title">76 Insights</span>
+                <div class="card-actions">
+                  <el-tooltip content="Manage Columns" placement="top">
+                    <el-button type="text"><i data-feather="columns"></i></el-button>
+                  </el-tooltip>
+                  <el-tooltip content="Download CSV" placement="top">
+                    <el-button type="text"><i data-feather="download"></i></el-button>
+                  </el-tooltip>
+                </div>
+              </div>
+              <el-table :data="tableDataInsights" class="tabledata">
+                <el-table-column type="selection" width="55"></el-table-column>
+                <el-table-column sortable label="Insight">
+                  <div slot-scope="{row}">
+                    <a href="#">{{row.Insight}}</a>
                   </div>
-                  <el-table :data="tableDataInsights" class="tabledata">
-                    <el-table-column type="selection" width="55"></el-table-column>
-                    <el-table-column sortable label="Insight">
-                      <div slot-scope="{row}">
-                        <a href="#">{{row.Insight}}</a>
-                      </div>
-                    </el-table-column>
-                    <el-table-column sortable prop="Created" label="Created"></el-table-column>
-                    <el-table-column sortable prop="Author" label="Author"></el-table-column>
-                    <el-table-column sortable align="right" prop="Comments" label="Comments"></el-table-column>
-                  </el-table>
-                </el-card>
-              </el-col>
-            </el-row>
-          </el-tab-pane>
-          <el-tab-pane label="Recommended" name="second">
-            <!-- row -->
-            <el-row :gutter="32">
-              <el-col :span="24">
-                <el-card class="box-card" shadow="never">
-                  <el-row :gutter="32" style="padding: 0;">
-                    <el-col :xs="24" :sm="12" :md="6" :lg="6" :xl="6">
-                      <div class="title" style="line-height: 1.4em; margin-bottom: 10px;">This is a longer, wrapping description of the insight. It falls to two or more lines.</div>
-                      <el-button type="primary" size="mini">View</el-button>
-                      <el-button type="text" size="mini">Dismiss</el-button>
-                    </el-col>
-                    <el-col :xs="24" :sm="12" :md="6" :lg="6" :xl="8">
-                      <div id="FBPieHey1" style="height: 180px;"></div>
-                    </el-col>
-                    <el-col :xs="24" :sm="12" :md="6" :lg="6" :xl="8">
-                      <div id="containerFB1Hey1" style="height: 180px;"></div>
-                    </el-col>
-                    <el-col :xs="24" :sm="12" :md="6" :lg="6" :xl="8">
-                      <div id="container7Hey1" style="height: 180px;"></div>
-                    </el-col>
-                  </el-row>
-                </el-card>
-              </el-col>
-            </el-row>
-            <!-- row -->
-            <el-row :gutter="32">
-              <el-col :span="24">
-                <el-card class="box-card" shadow="never">
-                  <el-row :gutter="32" style="padding: 0;">
-                    <el-col :xs="24" :sm="12" :md="6" :lg="6" :xl="6">
-                      <div class="title" style="line-height: 1.4em; margin-bottom: 10px;">This is a longer, wrapping description of the insight. It falls to two or more lines.</div>
-                      <el-button type="primary" size="mini">View</el-button>
-                      <el-button type="text" size="mini">Dismiss</el-button>
-                    </el-col>
-                    <el-col :xs="24" :sm="12" :md="6" :lg="6" :xl="8">
-                      <div id="containerFB1Hey2" style="height: 180px;"></div>
-                    </el-col>
-                    <el-col :xs="24" :sm="12" :md="6" :lg="6" :xl="8">
-                      <div id="FBPieHey2" style="height: 180px;"></div>
-                    </el-col>
-                    <el-col :xs="24" :sm="12" :md="6" :lg="6" :xl="8">
-                      <div id="sentiment1Hey2" style="height: 180px;"></div>
-                    </el-col>
-                  </el-row>
-                </el-card>
-              </el-col>
-            </el-row>
-            <!-- row -->
-            <el-row :gutter="32">
-              <el-col :span="24">
-                <el-card class="box-card" shadow="never">
-                  <el-row :gutter="32" style="padding: 0;">
-                    <el-col :xs="24" :sm="12" :md="6" :lg="6" :xl="6">
-                      <div class="title" style="line-height: 1.4em; margin-bottom: 10px;">This is a longer, wrapping description of the insight. It falls to two or more lines.</div>
-                      <el-button type="primary" size="mini">View</el-button>
-                      <el-button type="text" size="mini">Dismiss</el-button>
-                    </el-col>
-                    <el-col :xs="24" :sm="12" :md="6" :lg="6" :xl="8">
-                      <div id="container7Hey3" style="height: 180px;"></div>
-                    </el-col>
-                    <el-col :xs="24" :sm="12" :md="6" :lg="6" :xl="8">
-                      <div id="sentiment1Hey3" style="height: 180px;"></div>
-                    </el-col>
-                    <el-col :xs="24" :sm="12" :md="6" :lg="6" :xl="8">
-                      <div id="containerFB1Hey3" style="height: 180px;"></div>
-                    </el-col>
-                  </el-row>
-                </el-card>
-              </el-col>
-            </el-row>
-            <!-- row -->
-            <el-row :gutter="32">
-              <el-col :span="24">
-                <el-card class="box-card" shadow="never">
-                  <el-row :gutter="32" style="padding: 0;">
-                    <el-col :xs="24" :sm="12" :md="6" :lg="6" :xl="6">
-                      <div class="title" style="line-height: 1.4em; margin-bottom: 10px;">This is a longer, wrapping description of the insight. It falls to two or more lines.</div>
-                      <el-button type="primary" size="mini">View</el-button>
-                      <el-button type="text" size="mini">Dismiss</el-button>
-                    </el-col>
-                    <el-col :xs="24" :sm="12" :md="6" :lg="6" :xl="8">
-                      <div id="sentiment1Hey4" style="height: 180px;"></div>
-                    </el-col>
-                    <el-col :xs="24" :sm="12" :md="6" :lg="6" :xl="8">
-                      <div id="containerFB1Hey4" style="height: 180px;"></div>
-                    </el-col>
-                    <el-col :xs="24" :sm="12" :md="6" :lg="6" :xl="8">
-                      <div id="FBPieHey4" style="height: 180px;"></div>
-                    </el-col>
-                  </el-row>
-                </el-card>
-              </el-col>
-            </el-row>
-          </el-tab-pane>
-        </el-tabs>
+                </el-table-column>
+                <el-table-column sortable prop="Created" label="Created"></el-table-column>
+                <el-table-column sortable prop="Author" label="Author"></el-table-column>
+                <el-table-column sortable align="right" prop="Comments" label="Comments"></el-table-column>
+              </el-table>
+            </el-card>
+          </el-col>
+        </el-row>
       </el-tab-pane>
       <!-- GUIDES -->
       <!-- GUIDES -->
@@ -1376,21 +1277,6 @@
           <el-tab-pane label="Integrations" name="third">
             <!-- row -->
             <el-row :gutter="32">
-              <!-- col 1 -->
-              <el-col :xs="24" :sm="12" :md="8" :lg="4" :xl="4">
-                <a href="#">
-                  <el-card class="box-card" shadow="hover">
-                    <div class="integration" style="background: #000000;">
-                      <img src="https://pendo-dev-extensions.storage.googleapis.com/extensions/chat/latest/assets/drift.svg" alt="Drift" />
-                    </div>
-                    <div class="title">Drift</div>
-                    <div class="subtitle">Live Chat</div>
-                    <div class="installed">
-                      <el-tag type="info" effect="dark">Not Installed</el-tag>
-                    </div>
-                  </el-card>
-                </a>
-              </el-col>
               <!-- col 2 -->
               <el-col :xs="24" :sm="12" :md="8" :lg="4" :xl="4">
                 <a href="#">
@@ -1529,21 +1415,6 @@
                   </el-card>
                 </a>
               </el-col>
-              <!-- col 11 -->
-              <el-col :xs="24" :sm="12" :md="8" :lg="4" :xl="4">
-                <a href="#">
-                  <el-card class="box-card" shadow="hover">
-                    <div class="integration" style="background: #213245;">
-                      <img src="https://app.unbird.com/images/pendo/unbird-icon.svg" alt="Unbird" />
-                    </div>
-                    <div class="title">Unbird</div>
-                    <div class="subtitle">User Feedback</div>
-                    <div class="installed">
-                      <el-tag type="info" effect="dark">Not Installed</el-tag>
-                    </div>
-                  </el-card>
-                </a>
-              </el-col>
             </el-row>
           </el-tab-pane>
         </el-tabs>
@@ -1553,7 +1424,7 @@
       <el-button type="text" class="cornerbell"><i data-feather="bell"></i></el-button>
       <el-dropdown trigger="click">
         <span class="el-dropdown-link">
-          <img src="https://wrnkld.tv/img/frenchfries.jpg" class="cornerff" /><i data-feather="chevron-down"></i>
+          <img src="https://randomuser.me/api/portraits/lego/1.jpg" class="cornerff" /><i data-feather="chevron-down"></i>
         </span>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>Subscription Name 1</el-dropdown-item>
